@@ -11,3 +11,9 @@ https://www.hostdrip.com/2021/03/23/greenlight-cutomized-installation-for-whitel
 Set timezone
 sudo timedatectl set-timezone Asia/Bangkok
 timedatectl
+
+
+Force change URL room
+docker exec -it greenlight-v2 bash
+bundle exec rails c
+Room.find_by(uid: "CURRENT_ROOM_ID").update_attribute(:uid, "NEW_CUSTOM_ID")
