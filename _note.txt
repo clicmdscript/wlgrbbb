@@ -10,3 +10,4 @@ https://www.hostdrip.com/2021/03/23/greenlight-cutomized-installation-for-whitel
 
 Set timezone
 sudo timedatectl set-timezone Asia/Bangkok
+timedatectl
