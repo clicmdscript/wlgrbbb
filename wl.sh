@@ -1,8 +1,10 @@
 cd /root/greenlight
+
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/1.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/2.sh
 chmod +x 1.sh && chmod +x 2.sh
-sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample.env
+./1.sh
+#sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample.env
 
 cd /root/greenlight/app/views/shared
 sudo rm -rf _footer.html.erb
@@ -100,5 +102,8 @@ sudo rm -rf index.html
 sudo rm -rf favicon.ico
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/index.html
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
+
+./2.sh
+sudo bbb-conf --clean
 
 
