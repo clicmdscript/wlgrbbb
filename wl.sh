@@ -62,6 +62,22 @@ cd /usr/share/meteor/bundle/programs/server/assets/app/config/
 rm -rf settings.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/settings.yml
 
+cd /usr/share/meteor/bundle/programs/web.browser.legacy/app/locales/
+sudo rm -rf vi.json
+sudo rm -rf vi_VN.json
+sudo rm -rf en.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legacy/vi.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legacy/vi_VN.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legacy/en.json
+
+cd /usr/share/meteor/bundle/programs/web.browser/app/locales/
+sudo rm -rf vi.json
+sudo rm -rf vi_VN.json
+sudo rm -rf en.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webmain/vi.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webmain/vi_VN.json
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webmain/en.json
+
 cd /var/www/bigbluebutton-default/
 sudo rm -rf testjava.html
 sudo rm -rf index.html
