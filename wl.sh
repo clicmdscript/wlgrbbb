@@ -84,6 +84,21 @@ https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.png
 https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-logo.png
 https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo.png
 
+cd /var/bigbluebutton/playback/presentation/
+cd 2.0
+sudo rm -rf playback.html
+sudo rm -rf playback.js
+sudo rm -rf logo.png
 
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/pp20/playback.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/pp20/playback.js
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/pp20/logo.png
+
+cd ..
+cd 2.3
+sudo rm -rf index.html
+sudo rm -rf favicon.ico
+sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/index.html
+sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
 
 
