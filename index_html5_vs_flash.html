@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Onmeet</title>
+    <meta name="description" content="Onmeet">
+    <meta name="keywords" content="Onmeet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/bijou.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bbb-bootstrap.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bigbluebutton.js"></script>
+	</head>
+  <body>
+    <div class='main'>
+
+    <!-- Messages -->
+    <div id='messages' class='hidden'>
+    </div>
+
+    <!-- Header -->
+    <div class='navbar'>
+      <div class='container'>
+        <div class="logo">
+          <img src="images/on-logo.png" alt="Onmeet"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class='container'>
+
+
+      <div class='row'>
+        <div class='span six html5clientOnly'>
+          <div class='join-meeting '>
+            <h4>Try via HTML5</h4>
+            <p>Join a demo session on this server.</p>
+
+            <form name="form1" method="GET" onsubmit="return checkform(this);" action="/demo/demoHTML5.jsp">
+              <input type="text" id="username" required="" name="username" placeholder="Enter Your Name" size="29" class="field input-default" autofocus>
+              <input type="submit" value="Join" class="submit_btn button success large"><br>
+              <input type="hidden" name="action" value="create">
+            </form>
+
+          </div>
+        </div>
+        <div class='span six'>
+          <div class='join-meeting'>
+            <h4>Try via Flash</h4>
+            <p>Join a demo session on this server.</p>
+
+            <form name="form1" method="GET" onsubmit="return checkform(this);" action="/demo/demo1.jsp">
+              <input type="text" id="username" required="" name="username" placeholder="Enter Your Name" size="29" class="field input-default" autofocus>
+              <input type="submit" value="Join" class="submit_btn button success large"><br>
+              <input type="hidden" name="action" value="create">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+      <div class='row'>
+       <div >
+          <h2>HTML5 client test server</h2>
+
+          <h4>For Developers</h4>
+            </div>
+        <div class="span one"></div>
+
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="bbb-features">
+	      <div class='row'>
+	        <div class='featurette-heading'>
+	          <h2>Features</h2>
+	        </div>
+
+	        <div class='span four first'>
+	          <i class="fa fa-play-circle-o"></i>
+
+	          <div class="bbb-features-content">
+	            <h3>Record and Playback</h3>
+	            <p>Can record your sessions for later playback by students.</p>
+	          </div>
+	        </div>
+
+	        <div class='span four'>
+	          <i class="fa fa-pencil-square-o"></i>
+
+	          <div class="bbb-features-content">
+	            <h3>Whiteboard</h3>
+	            <p>The whiteboard controls let you annotate key parts of your presentation.</p>
+	          </div>
+	        </div>
+
+	        <div class='span four last'>
+	          <i class="fa fa-desktop"></i>
+
+	          
+	        </div>
+	      </div>
+
+
+	      <div class='row'>
+	        <div class='span four first'>
+	          <i class="fa fa-microphone"></i>
+
+	          
+	        </div>
+
+	        <div class='span four'>
+	          <i class="fa fa-bar-chart-o"></i>
+
+	          
+	        </div>
+
+	        <div class='span four last'>
+	          <i class="fa fa-video-camera"></i>
+
+	         
+	        </div>
+	      </div>
+
+              <div class='row'>
+                <div class='span four first'>
+                  <i class="fa fa-smile-o"></i>
+
+                  <div class="bbb-features-content">
+                    <h3>Emoji</h3>
+                    <p>Students can raise hand and use emoji icons for feedback.</p>
+                  </div>
+                </div>
+
+                <div class='span four'>
+                  <i class="fa fa-check-square-o"></i>
+
+                  <div class="bbb-features-content">
+                    <h3>Polling</h3>
+                    <p>You can poll students anytime to increase engagement.</p>
+                  </div>
+                </div>
+
+                <div class='span four last'>
+                  <i class="fa fa-comments-o"></i>
+
+                  <div class="bbb-features-content">
+                    <h3>Chat</h3>
+                    <p>You can interact with students through public and private chat.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row'>
+                <div class='span four first'>
+                  <i class="fa fa-cc"></i>
+
+                 
+                </div>
+
+                <div class='span four'>
+                  <i class="fa fa-users"></i>
+
+                  
+                </div>
+
+                <div class='span four last'>
+                  <i class="fa fa-blind"></i>
+
+                  <div class="bbb-features-content">
+                    <h3>Screen Reader</h3>
+                  </div>
+                </div>
+              </div>
+
+      </div>
+      <hr class="featurette-divider">
+
+      <div id="video" class="bbb-videos">
+	      <div class='row'>
+	        <div class='featurette-heading'>
+	          <h2>Getting Started Quickly</h2>
+	        </div>
+
+	      </div>
+      </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class='container'>
+
+	      <div class="row">
+	      	<div class="span six first">
+		        <p>Onmeet.</a></p>
+          </div>
+	      	<div class="span six last">
+						
+	      	</div>
+	      </div> 
+
+
+	      <div class="row">
+	      	<div class="span twelve center">
+		        <p>Onmeet.<br>
+		        <small><a href=""></a></small>
+		        </p>
+	      	</div>
+	      </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

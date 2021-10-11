@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Onmeet Web Conferencing</title>
+    <meta name="description" content="Deliver a high-quality learning experience to remote students.">
+    <meta name="keywords" content="Onmeet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/bijou.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bbb-bootstrap.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bigbluebutton.js"></script>
+	</head>
+  <body>
+    <div class='main'>
+
+    <!-- Messages -->
+    <div id='messages' class='hidden'>
+    </div>
+
+    <!-- Header -->
+    <div class='navbar'>
+      <div class='container'>
+        <div class="logo">
+          <img src="images/on-logo.png" width="240" alt=" Onmeet"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class='container'>
+
+      <div class='row'>
+        <div class='span six html5clientOnly input-center'>
+          <div class='join-meeting '>
+            <h4>Bắt đầu</h4>
+            <p></p>
+
+
+            <form name="form1" method="GET" onsubmit="return checkform(this);" action="/demo/demoHTML5.jsp">
+              <input type="text" id="username" required="" name="username" placeholder="Enter Your Name" size="29" class="field input-default" autofocus>
+              <input type="submit" value="Join" class="submit_btn button success large"><br>
+              <input type="hidden" name="isModerator" value="true">
+              <input type="hidden" name="action" value="create">
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+     
+      <hr class="featurette-divider">
+
+      
+
+      </div>
+    </div>
+
+    <!--  Footer -->
+    <footer>
+      <div class='container'>
+
+	      <div class="row">
+	      	<div class="span six first">
+		        <p>Onmeet.</a></p>
+          </div>
+	      	
+	      </div> 
+
+
+	      <div class="row">
+	      	<div class="span twelve center">
+		        <p>Onmeet.<br>
+		        <small></small>
+		        </p>
+	      	</div>
+	      </div>
+      </div>
+    </footer>
+  </body>
+</html>
