@@ -33,6 +33,10 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb_logo.png
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo_with_text.png
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
 
+cd /root/greenlight/app/views/errors/
+sudo rm -rf bigbluebutton_error.html.erb
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bigbluebutton_error.html.erb
+
 cd /root/greenlight/config
 sudo rm -rf application.rb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/application.rb
@@ -43,5 +47,43 @@ sudo rm -rf en.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/vi_VN.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/vi.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/en.yml
+
+cd /usr/share/meteor/bundle/programs/server/assets/app/config/
+rm -rf settings.yml
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/settings.yml
+
+cd /var/www/bigbluebutton-default/
+sudo rm -rf testjava.html
+sudo rm -rf index.html
+sudo rm -rf index_html5_vs_flash.html
+sudo rm -rf home.html
+sudo rm -rf help.html
+sudo rm -rf favicon.ico
+sudo rm -rf default.pptx
+sudo rm -rf default.pdf
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/testjava.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/index.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/index_html5_vs_flash.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/home.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/help.html
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/default.pptx
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/default.pdf
+
+cd /usr/share/bbb-web/assets/favicon.ico
+sudo rm -rf favicon.ico
+https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+cd /var/www/bigbluebutton-default/
+sudo rm -rf favicon.ico
+https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+cd /var/www/bigbluebutton-default/images/
+sudo rm -rf favicon.png
+sudo rm -rf bbb-logo.png
+sudo rm -rf logo.png
+https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.png
+https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-logo.png
+https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo.png
+
+
 
 
