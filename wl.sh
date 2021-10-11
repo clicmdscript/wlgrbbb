@@ -1,10 +1,18 @@
 cd /root/greenlight
-
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/menu.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/1.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/2.sh
-chmod +x 1.sh && chmod +x 2.sh
+chmod +x 1.sh && chmod +x 2.sh && chmod +x menu.sh
+echo".................................................."
+echo "Now docker down for process"
+echo".................................................."
+
 ./1.sh
 #sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample.env
+
+echo".................................................."
+echo "Remove and update new code"
+echo".................................................."
 
 cd /root/greenlight/app/views/shared
 sudo rm -rf _footer.html.erb
@@ -103,9 +111,22 @@ sudo rm -rf favicon.ico
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/index.html
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
 
+echo".................................................."
+echo "Now Docker UP -D, Restart Nginx & BBB"
+echo".................................................."
+
 ./2.sh
+
+echo".................................................."
+echo "BBB -- Clean"
+echo".................................................."
+
 sudo bbb-conf --clean
 
+
+echo".................................................."
+echo "All done !!!"
+echo".................................................."
 
 
 
