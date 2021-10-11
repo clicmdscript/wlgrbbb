@@ -107,3 +107,28 @@ sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
 sudo bbb-conf --clean
 
 
+
+
+#other path
+#AUDIO: /var/freeswitch/meetings
+#WEBCAM (Flash): /usr/share/red5/webapps/video/streams
+#WEBCAM (HTML5): /var/kurento/recordings
+#SCREEN SHARING (Flash): /var/usr/share/red5/webapps/screenshare/streams
+#SCREEN SHARING (HTML5): /var/kurento/screenshare
+#SLIDES: /var/bigbluebutton
+#NOTES: http://localhost:9001/p
+#EVENTS: Redis
+#Archived filesAnchor link for: archived files
+#The archived file are located in /var/bigbluebutton/recording/raw/<internal-meeting-id>/
+#
+#Sanity checked filesAnchor link for: sanity checked files
+#The sanity files are store in the same place as the archived files
+#
+#Processed filesAnchor link for: processed files
+#The processed files can be found in /var/bigbluebutton/recording/process/presentation/<internal-meeting-id>/
+#
+#Published filesAnchor link for: published files
+#The published files are in /var/bigbluebutton/recording/publish/presentation/<internal-meeting-id>/
+#
+#Playback filesAnchor link for: playback files
+#The playback files are found in /var/bigbluebutton/published/presentation/<internal-meeting-id>/
