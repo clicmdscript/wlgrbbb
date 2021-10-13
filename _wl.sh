@@ -8,7 +8,7 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/3changeaudio
 
 chmod +x 1.sh && chmod +x 2.sh && chmod +x menu.sh && chmod +x 3changeaudio.sh
 echo".................................................."
-echo "Now docker down for process"
+echo "Now docker down for process with 1.sh"
 echo".................................................."
 
 ./1.sh
