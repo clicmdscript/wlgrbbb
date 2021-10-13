@@ -1,8 +1,12 @@
+echo "/root/greenlight"
+echo "Download menu.sh & 1.sh & 2.sh & 3changeaudio.sh"
 cd /root/greenlight
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/menu.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/1.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/2.sh
-chmod +x 1.sh && chmod +x 2.sh && chmod +x menu.sh
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/3changeaudio.sh
+
+chmod +x 1.sh && chmod +x 2.sh && chmod +x menu.sh && chmod +x 3changeaudio.sh
 echo".................................................."
 echo "Now docker down for process"
 echo".................................................."
@@ -14,12 +18,14 @@ echo".................................................."
 echo "Remove and update new code"
 echo".................................................."
 
+echo"/root/greenlight/app/views/shared"
 cd /root/greenlight/app/views/shared
 sudo rm -rf _footer.html.erb
 sudo rm -rf _header.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/_footer.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/_header.html.erb
 
+echo "/root/greenlight/app/views/main"
 cd /root/greenlight/app/views/main
 sudo rm -rf index.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/index.html.erb
@@ -27,14 +33,17 @@ cd components
 sudo rm -rf _features.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/_features.html.erb
 
+echo "/root/greenlight/app/views/layouts"
 cd /root/greenlight/app/views/layouts
 sudo rm -rf application.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/application.html.erb
 
+echo "/root/greenlight/app/assets/javascripts"
 cd /root/greenlight/app/assets/javascripts
 sudo rm -rf recording.js
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/recording.js
 
+echo "/root/greenlight/app/assets/images"
 cd /root/greenlight/app/assets/images
 sudo rm -rf logo_with_text.png
 sudo rm -rf bbb_logo.png
@@ -43,13 +52,16 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb_logo.png
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo_with_text.png
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
 
+echo "/root/greenlight/app/views/errors/"
 cd /root/greenlight/app/views/errors/
 sudo rm -rf bigbluebutton_error.html.erb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bigbluebutton_error.html.erb
 
+echo "/root/greenlight/config"
 cd /root/greenlight/config
 sudo rm -rf application.rb
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/application.rb
+
 cd locales/
 sudo rm -rf vi_VN.yml
 sudo rm -rf vi.yml
@@ -58,10 +70,12 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/vi_VN.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/vi.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/en.yml
 
+echo "/usr/share/meteor/bundle/programs/server/assets/app/config/"
 cd /usr/share/meteor/bundle/programs/server/assets/app/config/
 rm -rf settings.yml
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/settings.yml
 
+echo "/usr/share/meteor/bundle/programs/web.browser.legacy/app/locales/"
 cd /usr/share/meteor/bundle/programs/web.browser.legacy/app/locales/
 sudo rm -rf vi.json
 sudo rm -rf vi_VN.json
@@ -70,6 +84,7 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legac
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legacy/vi_VN.json
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/legacy/en.json
 
+echo "/usr/share/meteor/bundle/programs/web.browser/app/locales/"
 cd /usr/share/meteor/bundle/programs/web.browser/app/locales/
 sudo rm -rf vi.json
 sudo rm -rf vi_VN.json
@@ -78,6 +93,7 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webma
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webmain/vi_VN.json
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/meteor/webmain/en.json
 
+echo "/var/www/bigbluebutton-default/"
 cd /var/www/bigbluebutton-default/
 sudo rm -rf testjava.html
 sudo rm -rf index.html
@@ -96,20 +112,26 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/default.pptx
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/default.pdf
 
-cd /usr/share/bbb-web/assets/favicon.ico
+echo "/usr/share/bbb-web/assets/"
+cd /usr/share/bbb-web/assets/
 sudo rm -rf favicon.ico
-https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+
+echo "/var/www/bigbluebutton-default/"
 cd /var/www/bigbluebutton-default/
 sudo rm -rf favicon.ico
-https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.ico
+
+echo "/var/www/bigbluebutton-default/images/"
 cd /var/www/bigbluebutton-default/images/
 sudo rm -rf favicon.png
 sudo rm -rf bbb-logo.png
 sudo rm -rf logo.png
-https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.png
-https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-logo.png
-https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo.png
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/favicon.png
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-logo.png
+sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/logo.png
 
+echo "/var/bigbluebutton/playback/presentation/"
 cd /var/bigbluebutton/playback/presentation/
 cd 2.0
 sudo rm -rf playback.html
