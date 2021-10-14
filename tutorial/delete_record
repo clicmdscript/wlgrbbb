@@ -1,0 +1,12 @@
+BigBlueButton deleting largest RAW files tutorial
+Twice so far my hard drive has been filled up by the raw files for BBB recordings. Don't do this for recordings you might need or that might still be processing.
+
+For any admins running their own BBB server I wanted to make a short tutorial for deleting the raw files that take up space on the server.
+
+Use "sudo bbb-record --list" to see the whole list of BBB recordings
+
+navigate to /var/bigbluebutton/recording/raw
+
+Use "du -h --max-depth=1 | sort -hr" to see the Disk Usage for folders, but not subfolders, sorted by file size from biggest to smallest
+
+Find the largest file you want to delete and use "sudo bbb-record --delete [recording name]" Before I delete a file I made sure it wasn't from the last few days so the odds of it still being processed are much lower. Look at the output from sudo bbb-record --list to see when the big recordings are from.
