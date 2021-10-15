@@ -1,5 +1,5 @@
-echo "/root/greenlight"
-cd /root/greenlight
+echo "Change images and Logo"
+echo "to start please check images in github folder"
 
 echo "/root/greenlight/app/assets/images"
 cd /root/greenlight/app/assets/images
