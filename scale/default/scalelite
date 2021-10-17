@@ -3,7 +3,7 @@ SECRET_KEY_BASE=29785a61fbcdc0ec4921d6156040a2e6c7169126fee79effd41d5b0116fb3158
 LOADBALANCER_SECRET=00a1a60b15cbc0b77bd60b281ce20b4028c5d1c1f9623e691191f375d940dc1d
 DATABASE_URL=postgres://scalelite:665e4e4ba66116f7@143.198.209.169:5432/scalelite
 REDIS_URL=redis://redis@143.198.209.169:6379
-SCALELITE_TAG=v1
+SCALELITE_TAG=v1.1
 SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
 NGINX_SSL=true
 SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly
