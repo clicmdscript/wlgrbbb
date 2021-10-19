@@ -7,8 +7,6 @@ echo "/mnt/scalelite-recordings    *(rw,sync,no_root_squash)" > /etc/exports
 cat /etc/exports
 
 sudo /etc/init.d/nfs-kernel-server restart
-sudo systemctl status nfs-server
-
 
 read -p "Enter domain of scalelite server: " dmnamescal
 echo "Data received"
@@ -22,7 +20,6 @@ sudo mkdir -p /mnt/scalelite-recordings
 echo "Restart NFS server"
 sudo /etc/init.d/nfs-kernel-server restart
 
-
 echo "Start Firewall add domain and IP"
 
 sudo apt update
@@ -33,12 +30,7 @@ echo "Data received"
 
 ufw allow from $ip4scalelite
 sudo ufw allow 22
-sudo ufw enable
-
-sudo ufw status verbose
-sudo ufw app list
-
-sudo ufw show added
-sudo ufw reload
+echo "sudo ufw enable"
+echo "sudo ufw reload"
 
 echo "Firewall Config Completed"
