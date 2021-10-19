@@ -105,15 +105,6 @@ echo "Review file scalelite created"
 cat /etc/default/scalelite
 
 echo -n "CHECK file /etc/default/scalte is OK? press N to continue? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
-
 
 
 echo "Download file .service to /etc/systemd/system"
@@ -147,32 +138,9 @@ echo "Download file .service to /etc/systemd/system"
 
 
 echo -n "Please compplete 2 command with other login SSH, then press N to continue? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
-
-
 
 echo " Try setting up database for scalelite"
 docker exec -it scalelite-api bin/rake db:setup
-
-
-echo -n "if get error, PRESS Y to fix, if all ok, PRESS N to continue setup? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-else
-   # No
-   echo "Ok, Next step.!"
-fi
-
-
 
 echo "Install NFS server to connect with BBB record"
 apt-get install -y nfs-server nfs-kernel-server
@@ -180,22 +148,12 @@ apt-get install -y nfs-server nfs-kernel-server
 sudo /etc/init.d/nfs-kernel-server restart
 
 
-
 echo "vi /etc/exports"
 echo "/mnt/scalelite-recordings \ "
 echo "bbb1.roauset.com(rw,sync,no_root_squash,no_subtree_check) \ "
 echo "bbb2.roauset.com(rw,sync,no_root_squash,no_subtree_check)"
 
-
 echo -n "Please vi /etc/exports with other login SSH, then press N to continue? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
 
 
 echo "Check with exportfs command"
@@ -234,14 +192,6 @@ echo "bbb3.roauset.com(rw,sync,no_root_squash,no_subtree_check)"
 echo "................................................"
 
 echo -n "Wating (y/n), edit in /etc/exports in other SSH connect. press N to coutinue "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, NEXT step.!"
-fi
 
 
 echo "vi /etc/fstab"
@@ -251,14 +201,6 @@ echo "bbb3.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults       
 
 
 echo -n "Wating (y/n), edit in /etc/fstab in other SSH connect. press N to coutinue "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, NEXT step.!"
-fi
 
 
 read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
@@ -272,8 +214,4 @@ getent group | grep scal
 echo "Should showing like"
 echo "scalelite-spool:x:2000:bigbluebutton"
 echo "Check with DF -h"
-
-
-
-
 
