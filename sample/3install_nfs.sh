@@ -1,18 +1,20 @@
 #!/bin/bash
-
+# file quan trong: vi /etc/exports
 sudo apt-get update
-apt-get install -y nfs-server nfs-kernel-server
+apt-get install -y nfs-server 
+apt-get install -y nfs-kernel-server
 
 echo "/mnt/scalelite-recordings    *(rw,sync,no_root_squash)" > /etc/exports
 cat /etc/exports
 
 sudo /etc/init.d/nfs-kernel-server restart
 
-read -p "Enter domain of scalelite server: " dmnamescal
-echo "Data received"
+#read -p "Enter domain of scalelite server: " dmnamescal
+#echo "Data received"
 
-echo "/mnt/scalelite-recordings \ " > /etc/exports
-echo "$dmnamescal(rw,sync,no_root_squash,no_subtree_check) " > /etc/exports
+echo "Manual add in /etc/exports"
+echo "/mnt/scalelite-recordings \" 
+echo "domainscale.dm.com(rw,sync,no_root_squash,no_subtree_check) "
 
 echo "Create DIR for /mnt/scalelite-recordings"
 sudo mkdir -p /mnt/scalelite-recordings
