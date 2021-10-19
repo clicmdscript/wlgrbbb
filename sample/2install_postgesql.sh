@@ -44,7 +44,7 @@ echo "\q to EXIT SQL"
 
 echo ""
 echo "sudo service postgresql restart"
-sudo systemsctl restart postgesql
+sudo service postgresql restart
 echo ""
 echo "Allow IP of scalelite server"
 read -p "Enter IP of Scalelite server: " IPSCALELITE
@@ -54,12 +54,16 @@ echo ""
 ufw allow from $IPSCALELITE
 sudo ufw allow 5432
 sudo ufw allow 22
-
 sudo ufw reload
+
 
 echo "All done for Postgesql"
 echo "Please allow all IP of system to firewall"
 echo "sudo ufw allow from IP"
+echo "enable firewall with command"
+echo "sudo ufw enable"
+
+
 
 
 
