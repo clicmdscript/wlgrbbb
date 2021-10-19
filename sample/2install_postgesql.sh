@@ -32,6 +32,8 @@ echo "Save it"
 echo ""
 echo "Open new connect ssh and do command below create SQL"
 echo ""
+echo "Password Generator is"
+openssl rand -hex 8
 echo "sudo -u postgres psql"
 echo "CREATE USER scalelite WITH PASSWORD 'PASS_FROM_HEX8';"
 echo "CREATE DATABASE scalelite;"
