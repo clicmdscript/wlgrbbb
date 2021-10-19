@@ -77,6 +77,9 @@ cd /etc/default
 rm -rf scalelite
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite
 echo "Download scalelite complete"
+echo "Create network"
+docker network create scalelite
+
 
 echo "Download file .service to /etc/systemd/system"
 
