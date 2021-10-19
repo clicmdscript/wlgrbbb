@@ -12,7 +12,6 @@ echo "listen_addresses = '*' # what IP address(es) to listen on;"
 echo ""
 
 echo -n "Please edit with command with other login SSH, then press N to continue? (y/n) "
-read yesno < /dev/tty
 
 echo "vi /etc/postgresql/12/main/pg_hba.conf"
 echo "ipv4 local connections"
@@ -26,7 +25,6 @@ echo "host postgres scalelite 157.230.44.12/32 trust"
 echo "host postgres scalelite 165.22.107.61/32 trust"
 
 echo -n "Please edit more in pg_hba.conf with other login SSH, then press N to continue? "
-
 
 echo "Password for PostgeSQL"
 openssl rand -hex 8
