@@ -95,22 +95,9 @@ sed -i 's/DB_PASSWORD=.*/DB_HOST=$DB_PASSWORD1/g' .env
 
 echo "Done for PostgeSQL update in .ENV file"
 echo ""
-echo "Comment internal PostgreSQL in docker-compose.yml"
-echo ""
-sed -i 's/links:/#links:/g' docker-compose.yml
-sed -i 's/- db/#- db:/g' docker-compose.yml
-sed -i 's/ db:/# db:/g' docker-compose.yml
-sed -i 's/image: postgres:9.5/#image: postgres:9.5/g' docker-compose.yml
-sed -i 's/restart: unless-stopped/#restart: unless-stopped/g' docker-compose.yml
-sed -i 's/ports:/#ports:/g' docker-compose.yml
-sed -i 's/- 127.0.0.1:5432:5432/#- 127.0.0.1:5432:5432:/g' docker-compose.yml
-sed -i 's/volumes:/#volumes:/g' docker-compose.yml
-sed -i 's/- ./db/production:/var/lib/postgresql/data/#- ./db/production:/var/lib/postgresql/data/g' docker-compose.yml
-sed -i 's/environment:/#environment:/g' docker-compose.yml
-sed -i 's/- POSTGRES_DB=postgres/#- POSTGRES_DB=postgres/g' docker-compose.yml
-sed -i 's/- POSTGRES_USER=postgres/#- POSTGRES_USER=postgres/g' docker-compose.yml
-sed -i 's/- POSTGRES_PASSWORD=password/#- POSTGRES_PASSWORD=password/g' docker-compose.yml
 
+rm -rf docker-compose.yml
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-compose.yml
 echo ""
 echo "Done update file docker-compose.yml"
 
