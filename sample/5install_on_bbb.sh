@@ -132,14 +132,12 @@ echo "Secret KEY"
 bbb-conf --secret
 
 
-
 echo "Setting up record config with scalelite"
 
 cd /root/
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/setup-recordings.sh
 chmod +x setup-recordings.sh
 ./setup-recordings.sh
-
 
 
 
