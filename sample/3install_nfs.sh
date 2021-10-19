@@ -1,5 +1,6 @@
 #!/bin/bash
 # file quan trong: vi /etc/exports
+# de mount dc tu server client, phai co domain trong file exports tren nfs server
 sudo apt-get update
 apt-get install -y nfs-server 
 apt-get install -y nfs-kernel-server
@@ -34,5 +35,7 @@ ufw allow from $ip4scalelite
 sudo ufw allow 22
 echo "sudo ufw enable"
 echo "sudo ufw reload"
+echo "sudo ufw status"
+
 
 echo "Firewall Config Completed"
