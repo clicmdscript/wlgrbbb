@@ -38,7 +38,7 @@ sudo ufw enable
 sudo ufw status verbose
 sudo ufw app list
 
-udo ufw show added
+sudo ufw show added
 sudo ufw reload
 
 echo "Firewall Config Completed"
