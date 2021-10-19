@@ -14,15 +14,6 @@ echo ""
 echo -n "Please edit with command with other login SSH, then press N to continue? (y/n) "
 read yesno < /dev/tty
 
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
-
-
-
 echo "vi /etc/postgresql/12/main/pg_hba.conf"
 echo "ipv4 local connections"
 echo "host	all 	all		0.0.0.0/0	md5"
@@ -34,15 +25,7 @@ echo "With Format below"
 echo "host postgres scalelite 157.230.44.12/32 trust"
 echo "host postgres scalelite 165.22.107.61/32 trust"
 
-echo -n "Please edit more in pg_hba.conf with other login SSH, then press N to continue? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
+echo -n "Please edit more in pg_hba.conf with other login SSH, then press N to continue? "
 
 
 echo "Password for PostgeSQL"
@@ -57,17 +40,6 @@ echo "CREATE DATABASE scalelite;"
 echo "GRANT ALL PRIVILEGES ON DATABASE "scalelite" to scalelite;"
 echo "ALTER ROLE scalelite SUPERUSER;"
 echo "\q to EXIT SQL"
-
-echo -n "Please compplete create SQL other login SSH, then press N to continue? (y/n) "
-read yesno < /dev/tty
-
-if [ "x$yesno" = "y" ];then
-   # Yes
-else
-   # No
-   echo "Ok, Next step.!"
-fi
-
 
 
 echo ""
