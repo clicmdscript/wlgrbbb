@@ -67,34 +67,6 @@ echo "Edit .env file on BBB"
 cd /root/greenlight
 cp .env 1.env
 
-read -p "Enter Scalelite keybase hex64: " keybasehex64
-echo "Data received"
-read -p "Enter Scalelite secret hex32: " keysecrethex32
-echo "Data received"
-read -p "Enter Scalelite domain scalelite.scalelite.domain: " scaliltedomain
-echo "Data received"
-
-echo "Replace data on .env file of Greenlight"
-echo "Update key base of scalelite hex 64"
-sed -i 's/SECRET_KEY_BASE=.*/SECRET_KEY_BASE=$keybasehex64/g' .env
-sed -i 's/BIGBLUEBUTTON_ENDPOINT=.*/BIGBLUEBUTTON_ENDPOINT=https://$scaliltedomain/bigbluebutton/api/g' .env
-sed -i 's/BIGBLUEBUTTON_SECRET=.*/BIGBLUEBUTTON_SECRET=$keysecrethex32/g' .env
-
-echo "Done for .ENV"
-echo "Next, add infomation of .env file with NEW POSTGESQL"
-read -p "Enter Postgesql IP address: " DB_HOST1
-echo "Data received"
-read -p "Enter Postgesql DB_USERNAME: " DB_USERNAME1
-echo "Data received"
-read -p "Enter Postgesql DB_PASSWORD: " DB_PASSWORD1
-echo "Data received"
-
-sed -i 's/DB_HOST=.*/DB_HOST=$DB_HOST1/g' .env
-sed -i 's/DB_USERNAME=.*/DB_HOST=$DB_USERNAME1/g' .env
-sed -i 's/DB_PASSWORD=.*/DB_HOST=$DB_PASSWORD1/g' .env
-
-echo "Done for PostgeSQL update in .ENV file"
-echo ""
 
 rm -rf docker-compose.yml
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-compose.yml
