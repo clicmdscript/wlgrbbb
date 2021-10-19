@@ -82,23 +82,23 @@ echo "Download file .service to /etc/systemd/system"
 
   cd /etc/systemd/system/
   sudo rm -rf scalelite.target
-  wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/scalelite.target
+  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite.target
   systemctl enable scalelite.target
 
   sudo rm -rf scalelite-api.service
-  wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/scalelite-api.service
-  systemctl enable scalelite-api.service
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-api.service
+systemctl enable scalelite-api.service
   
   sudo rm -rf scalelite-nginx.service
-  wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/scalelite-nginx.service
+  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-nginx.service
   systemctl enable scalelite-nginx.service
   
   sudo rm -rf scalelite-poller.service
-  wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/scalelite-poller.service
+  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-poller.service
   systemctl enable scalelite-poller.service
   
   sudo rm -rf scalelite-recording-importer.service
-  wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/scalelite-recording-importer.service
+  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-recording-importer.service
   
   systemctl enable scalelite-recording-importer.service
   systemctl restart scalelite.target
