@@ -5,11 +5,11 @@ read -p "Enter HOST the ssh string to use in form of scalelite.example.com " hos
 #HOST=${host1}
 echo "OK!"
 # the user to use with ssh
-read -p "Enter USER root or ubuntu with ssh: " user1
+read -p "Enter USER root ssh: " user1
 #USER=${user1}
 echo "OK!"
 # the spool dir on scalelite host
-read -p "Enter SPOOL the spool dir on scalelite host: " spool1
+read -p "Enter SPOOL the spool dir on scalelite host: /var/bigbluebutton/spool " spool1
 #SPOOL=${spool1}
 echo "OK!"
 
