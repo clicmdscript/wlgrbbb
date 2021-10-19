@@ -26,8 +26,8 @@ echo "......................................................................"
 echo "Create SSL key"
 sudo mkdir -p /etc/nginx/ssl
 
-read -p "Enter domain of scalelite scalilte.domain.com" scalelitedomain
-read -p "Enter Email for SSL generate" emailssl
+read -p "Enter domain of scalelite scalilte.domain.com:" scalelitedomain
+read -p "Enter Email for SSL generate:" emailssl
 
 sudo certbot --webroot -w /var/www/html/ -d $scalelitedomain certonly --agree-tos --email $emailssl --no-eff-email
 
@@ -148,22 +148,14 @@ apt-get install -y nfs-server nfs-kernel-server
 sudo /etc/init.d/nfs-kernel-server restart
 
 
-echo "vi /etc/exports"
-echo "/mnt/scalelite-recordings \ "
-echo "bbb1.roauset.com(rw,sync,no_root_squash,no_subtree_check) \ "
-echo "bbb2.roauset.com(rw,sync,no_root_squash,no_subtree_check)"
-
-echo -n "Please vi /etc/exports with other login SSH, then press N to continue? (y/n) "
-
-
 echo "Check with exportfs command"
 sudo /etc/init.d/nfs-kernel-server restart
 
-
+echo "mkdir /mnt..........."
 mkdir /mnt/scalelite-recordings
 cd /mnt
 chmod -R 0777 scalelite-recordings/
-
+echo "done"
 # Create the spool directory for recording transfer from BigBlueButton
 mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/spool
@@ -191,18 +183,21 @@ echo "bbb2.roauset.com(rw,sync,no_root_squash,no_subtree_check) \ "
 echo "bbb3.roauset.com(rw,sync,no_root_squash,no_subtree_check)"
 echo "................................................"
 
-echo -n "Wating (y/n), edit in /etc/exports in other SSH connect. press N to coutinue "
-
+echo "................................................"
+echo "................................................"
 
 echo "vi /etc/fstab"
 echo "bbb1.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
 echo "bbb2.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
 echo "bbb3.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
 
+echo "................................................"
+echo "CAN XEM LAI DOAN CODE NAY"
 
-echo -n "Wating (y/n), edit in /etc/fstab in other SSH connect. press N to coutinue "
 
 
+
+echo "Add ip to mount"
 read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
 echo "Data received"
 echo "Mounting............."
