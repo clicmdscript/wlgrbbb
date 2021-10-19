@@ -71,41 +71,12 @@ echo "LOADBALANCER_SECRET="
 openssl rand -hex 32
 echo ""
 
-read -p "Enter scalelite URL_HOST=: " URLHOST1
-echo "Data received"
-read -p "Enter scalelite SECRET_KEY_BASE= (64): " SECRETKEYBASE
-echo "Data received"
-read -p "Enter scalelite LOADBALANCER_SECRET= (32): " LOADBLSECRET
-echo "Data received"
-read -p "Enter PostgeSQL DATABASE_NAME=: " DATABASE_NAME2
-echo "Data received"
-read -p "Enter PostgeSQL USER_NAME=: " USER_NAME2
-echo "Data received"
-read -p "Enter PostgeSQL PASSWORD (8)=: " PASS2
-echo "Data received"
-read -p "Enter PostgeSQL Domain Database postgesql.domain.com=: " DOMAINSQL2
-echo "Data received"
-read -p "Enter Redis URL redis.domain.com: " REDISURL3
-echo "Data received"
-echo "Starting create file scalelite in /etc/default"
 
-cat > /etc/default/scalelite <<SCALECONF
-URL_HOST=$URLHOST1
-SECRET_KEY_BASE=$SECRETKEYBASE
-LOADBALANCER_SECRET=$LOADBLSECRET
-DATABASE_URL=postgresql://USER_NAME2:$PASS2@$DOMAINSQL2/$DATABASE_NAME2
-REDIS_URL=redis://REDISURL3:6379
-SCALELITE_TAG=v1.1
-SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
-NGINX_SSL=true
-SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/nginx/ssl,target=/etc/nginx/ssl,readonly
-SCALECONF
-echo "Done"
-echo "Review file scalelite created"
-cat /etc/default/scalelite
-
-echo -n "CHECK file /etc/default/scalte is OK? press N to continue? (y/n) "
-
+echo "Starting wget file scalelite in /etc/default"
+cd /etc/default
+rm -rf scalelite
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite
+echo "Download scalelite complete"
 
 echo "Download file .service to /etc/systemd/system"
 
