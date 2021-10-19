@@ -12,10 +12,6 @@ echo "done edit redis.conf"
 echo "Restaring redis service"
 sudo service redis-server restart
 
-echo "Redis service status"
-sudo systemctl status redis-server
-
-
 Echo "enable Firewall"
 
 read -p "Enter IP of Scalelite server: " IPSCALELITE
