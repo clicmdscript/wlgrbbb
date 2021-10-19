@@ -105,6 +105,7 @@ systemctl enable scalelite-api.service
   
   systemctl enable scalelite-recording-importer.service
   systemctl restart scalelite.target
+  docker exec -it scalelite-api bin/rake db:setup
   
   echo "Next, please run command to check again"
   echo "systemctl status scalelite-api.service scalelite-nginx.service "
@@ -115,6 +116,8 @@ echo -n "Please compplete 2 command with other login SSH, then press N to contin
 
 echo " Try setting up database for scalelite"
 docker exec -it scalelite-api bin/rake db:setup
+
+docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
 echo "Install NFS server to connect with BBB record"
 apt-get install -y nfs-server nfs-kernel-server
