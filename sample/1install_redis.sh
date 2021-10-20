@@ -15,13 +15,16 @@ echo "done edit redis.conf"
 echo "Restaring redis service"
 sudo service redis-server restart
 
-Echo "enable Firewall"
-
-echo "PLEASE allow IP of SCALELITE"
-echo "ufw allow from IP"
-echo "sudo ufw allow 6379"
+##CHANGE BEFORE USE
+yes | sudo ufw enable
+ufw allow from 157.245.196.93
+ufw allow from 157.245.192.5
+ufw allow from 188.166.242.86
+ufw allow from 143.198.82.130
+ufw allow from 143.198.89.91
+ufw allow from 143.198.89.90
+sudo ufw allow 6379
 sudo ufw allow 22
-
 sudo ufw reload
 
 echo "Done for REDIS server!"
