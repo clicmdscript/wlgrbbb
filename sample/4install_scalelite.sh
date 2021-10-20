@@ -77,9 +77,10 @@ cd /etc/default
 rm -rf scalelite
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite
 echo "Download scalelite complete"
+
+
 echo "Create network"
 docker network create scalelite
-
 
 echo "Download file .service to /etc/systemd/system"
 
@@ -120,8 +121,9 @@ docker exec -it scalelite-api bin/rake db:setup
 docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
 echo "Install NFS server to connect with BBB record"
-apt-get install -y nfs-server nfs-kernel-server
-
+sudo apt-get update
+apt-get install -y nfs-server
+apt-get install -y nfs-kernel-server
 sudo /etc/init.d/nfs-kernel-server restart
 
 
@@ -137,40 +139,38 @@ echo "done"
 mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/spool
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/spool
+
 # Create the temporary (working) directory for recording import
 mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
+
 # Create the directory for published recordings
 mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/published
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/published
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/published
+
 # Create the directory for unpublished recordings
 mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 
-
+echo "##### Allow connect from BBB"
 echo "vi /etc/exports"
 echo "edit like below"
 echo "................................................"
-echo "/mnt/scalelite-recordings \ "
-echo "bbb1.roauset.com(rw,sync,no_root_squash,no_subtree_check) \ "
-echo "bbb2.roauset.com(rw,sync,no_root_squash,no_subtree_check) \ "
-echo "bbb3.roauset.com(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings IP1(rw,sync,no_root_squash,no_subtree_check) "
+echo "/mnt/scalelite-recordings IP2(rw,sync,no_root_squash,no_subtree_check) "
+echo "/mnt/scalelite-recordings IP3(rw,sync,no_root_squash,no_subtree_check)"
 echo "................................................"
 
 echo "................................................"
 echo "................................................"
 
+echo "##### This setting to mount folder scalelite to NFS server"
 echo "vi /etc/fstab"
-echo "bbb1.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
-echo "bbb2.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
-echo "bbb3.roauset.com:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
-
+echo "NFSIPADDRESS:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
 echo "................................................"
-echo "CAN XEM LAI DOAN CODE NAY"
-
 
 
 
@@ -186,7 +186,6 @@ getent group | grep scal
 echo "Should showing like"
 echo "scalelite-spool:x:2000:bigbluebutton"
 echo "Check with DF -h"
-
 
 
 
