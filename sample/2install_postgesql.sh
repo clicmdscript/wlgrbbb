@@ -30,13 +30,19 @@ echo "host postgres scalelite IPBB1/32 trust"
 echo "host postgres scalelite IPBB2/32 trust"
 echo "host postgres scalelite IPBB3/32 trust"
 echo "host postgres scalelite IPNFS/32 trust"
-
-
 read -p "Press enter to continue"
 
-echo "Save it"
+echo "CREATE NEW DATABASE WITH OTHER SSH LOGIN"
+echo "sudo -u postgres psql"
 echo ""
-
+echo "CREATE USER scalelite WITH PASSWORD 'ccf52c0aa69d1929';"
+echo "CREATE DATABASE scalelite;"
+echo "GRANT ALL PRIVILEGES ON DATABASE "scalelite" to scalelite;"
+echo "ALTER ROLE scalelite SUPERUSER;"
+echo ""
+echo ""
+read -p "Press enter to continue"
+echo ""
 echo ""
 echo "sudo service postgresql restart"
 sudo service postgresql restart
