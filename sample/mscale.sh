@@ -58,7 +58,7 @@ case $choice in
  	read junk;;
 9) sudo /etc/init.d/nfs-kernel-server restart
  	read junk;;
-10) exportfs -
+10) exportfs -a
 	read junk;;
 11) sudo ufw status
 	read junk;;
