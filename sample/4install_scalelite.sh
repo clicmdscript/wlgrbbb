@@ -150,7 +150,6 @@ docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CH
 
 echo "Install NFS server to connect with BBB record"
 sudo apt-get update
-apt-get install -y nfs-server
 apt-get install -y nfs-kernel-server
 sudo /etc/init.d/nfs-kernel-server restart
 
