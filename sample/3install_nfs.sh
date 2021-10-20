@@ -60,6 +60,8 @@ echo "Check with command: exportfs"
 echo "Create DIR for /mnt/scalelite-recordings"
 mkdir -p /mnt/scalelite-recordings
 
+exportfs -a
+
 echo "Restart NFS server"
 sudo /etc/init.d/nfs-kernel-server restart
 
