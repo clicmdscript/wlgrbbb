@@ -199,7 +199,7 @@ wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigblu
 cd /usr/local/bigbluebutton/core/scripts
 wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_batch_import.sh
 chmod +x scalelite_batch_import.sh
-./scalelite_batch_import.sh
+#./scalelite_batch_import.sh
 
 
 
