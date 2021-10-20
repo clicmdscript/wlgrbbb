@@ -1,4 +1,6 @@
 #!/bin/bash
+#NOTE
+# Add all ipaddress of scalelite, BBB in firewall
 
 echo "Update and Install Postgesql"
 sudo apt-get update
@@ -10,13 +12,14 @@ echo "Manual edit"
 echo "vi /etc/postgresql/12/main/postgresql.conf"
 echo "listen_addresses = '*' # what IP address(es) to listen on;"
 echo ""
-
-echo -n "Please edit with command with other login SSH, then press N to continue? (y/n) "
+read -p "Press enter to continue"
 
 echo "vi /etc/postgresql/12/main/pg_hba.conf"
 echo "ipv4 local connections"
 echo "host	all 	all		0.0.0.0/0	md5"
 echo "Change authentication method to "md5" so that it will use encrypted password to authenticate users."
+read -p "Press enter to continue"
+
 
 echo "Add all IP address of system to allow at /etc/postgresql/12/main/pg_hba.conf"
 echo "vi /etc/postgresql/12/main/pg_hba.conf"
@@ -24,7 +27,8 @@ echo "With Format below"
 echo "host postgres scalelite 157.230.44.12/32 trust"
 echo "host postgres scalelite 165.22.107.61/32 trust"
 
-echo -n "Please edit more in pg_hba.conf with other login SSH, then press N to continue? "
+read -p "Press enter to continue"
+
 
 echo "Password for PostgeSQL"
 openssl rand -hex 8
@@ -40,6 +44,7 @@ echo "CREATE DATABASE scalelite;"
 echo "GRANT ALL PRIVILEGES ON DATABASE "scalelite" to scalelite;"
 echo "ALTER ROLE scalelite SUPERUSER;"
 echo "\q to EXIT SQL"
+read -p "Press enter to continue"
 
 
 echo ""
@@ -47,14 +52,13 @@ echo "sudo service postgresql restart"
 sudo service postgresql restart
 echo ""
 echo "Allow IP of scalelite server"
-read -p "Enter IP of Scalelite server: " IPSCALELITE
-echo "Data received"
 echo ""
+echo "ufw allow from IP SCALELITE"
+echo "sudo ufw allow 5432"
+echo "sudo ufw allow 22"
+echo "sudo ufw reload"
 
-ufw allow from $IPSCALELITE
-sudo ufw allow 5432
-sudo ufw allow 22
-sudo ufw reload
+read -p "Press enter to continue"
 
 
 echo "All done for Postgesql"
