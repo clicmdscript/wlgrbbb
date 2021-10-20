@@ -65,14 +65,6 @@ read -p "Press enter to continue"
 echo "......................................................................"
 echo "Start Install Scalelite"
 
-echo "SECRET_KEY_BASE="
-openssl rand -hex 64
-echo ""
-echo "LOADBALANCER_SECRET="
-openssl rand -hex 32
-echo ""
-
-
 echo "Starting wget file scalelite in /etc/default"
 cd /etc/default
 rm -rf scalelite
@@ -157,31 +149,33 @@ chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 
 echo "##### Allow connect from BBB"
 echo "vi /etc/exports"
-echo "edit like below"
-echo "................................................"
-echo "/mnt/scalelite-recordings IP1(rw,sync,no_root_squash,no_subtree_check) "
-echo "/mnt/scalelite-recordings IP2(rw,sync,no_root_squash,no_subtree_check) "
-echo "/mnt/scalelite-recordings IP3(rw,sync,no_root_squash,no_subtree_check)"
-echo "................................................"
+echo "--------------------------------------------------------------------------------"
+echo "/mnt/scalelite-recordings BBB_IP1(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings BBB_IP2(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings BBB_IP3(rw,sync,no_root_squash,no_subtree_check)"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: sudo exportfs -a"
 read -p "Press enter to continue"
 
 echo "................................................"
 echo "................................................"
 
-echo "##### This setting to mount folder scalelite to NFS server"
+echo "This setting to mount folder scalelite to NFS server"
 echo "vi /etc/fstab"
-echo "NFSIPADDRESS:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
-echo "................................................"
+echo "--------------------------------------------------------------------------------"
+echo "143.198.89.90:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: df -h"
 read -p "Press enter to continue"
 
 
-echo "Add ip to mount"
-read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
-echo "Data received"
-echo "Mounting............."
-echo "sudo mount NFSIP:/mnt/scalelite-recordings /mnt/scalelite-recordings
-echo "done mount"
-read -p "Press enter to continue"
+#echo "Add ip to mount"
+#read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
+#echo "Data received"
+#echo "Mounting............."
+#echo "sudo mount NFSIP:/mnt/scalelite-recordings /mnt/scalelite-recordings
+#echo "done mount"
+#read -p "Press enter to continue"
 
 echo "restart nfs server"
 sudo systemctl start nfs-kernel-server.service
