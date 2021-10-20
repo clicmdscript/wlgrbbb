@@ -206,13 +206,5 @@ sudo ufw allow 22
 sudo ufw reload
 
 
-cd /usr/local/bigbluebutton/core/scripts
-rm -rf scalelite.yml
-wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite.yml
-cd /usr/local/bigbluebutton/core/scripts
-wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_batch_import.sh
-chmod +x scalelite_batch_import.sh
-#./scalelite_batch_import.sh
-
 
 
