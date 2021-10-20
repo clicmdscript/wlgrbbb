@@ -29,8 +29,8 @@
 # 192.168.1.22:/share on /access type nfs (rw,addr=192.168.1.22)
 
 sudo apt-get update
-apt-get install -y nfs-server
-apt-get install -y nfs-kernel-server
+apt install -y nfs-server
+apt install nfs-kernel-server
 echo ""
 echo "Edit /etc/exports with content below"
 echo "/mnt/scalelite-recordings    *(rw,sync,no_root_squash)"
