@@ -59,6 +59,9 @@ read -p "Press enter to continue"
 echo "Check with command: exportfs"
 echo "Create DIR for /mnt/scalelite-recordings"
 mkdir -p /mnt/scalelite-recordings
+mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
+cd /mnt/scalelite-recordings/var/bigbluebutton
+chmod -R 0777 spool/
 
 exportfs -a
 
