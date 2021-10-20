@@ -42,7 +42,7 @@ case $choice in
 	read junk;;
 3) docker exec -it scalelite-api bundle exec rake status 
 	read junk;; 
-4) docker exec -i scalelite-api bundle exec rake poll:all"
+4) docker exec -i scalelite-api bundle exec rake poll:all
 	read junk;; 
 5) docker exec -it scalelite-api bin/rake db:setup
  	read junk;;
