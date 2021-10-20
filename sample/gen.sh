@@ -52,9 +52,8 @@ echo "CREATE DATABASE scalelite;"
 echo "GRANT ALL PRIVILEGES ON DATABASE "scalelite" to scalelite;"
 echo "ALTER ROLE scalelite SUPERUSER;"
 echo "\q to EXIT SQL"
-read -p "Press enter to continue"
+echo" sudo service postgresql restart"
 echo "------------Content of create Database---------------------------------"
-
 echo ""
 echo "//////////////SCALELITE SERVER/////////////////"
 echo "IP:	    $SCAL_IP
