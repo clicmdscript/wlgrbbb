@@ -1,0 +1,9 @@
+URL_HOST=cloud.roauset.com
+SECRET_KEY_BASE=8422b98c6c3be89b3d88a627bc39fc799fb5a224c2d959b2f1e4f21933b878ce7d0628e1da0c9caa0cb057d0cb9e242446e2c91bbf0ca548923f269d873c421b
+LOADBALANCER_SECRET=2b1b517a9a23fdb3d8eb0bc54b132da10a1c58986caf60d14bebb1e2110519e2
+DATABASE_URL=postgres://scalelite:ccf52c0aa69d1929@post.roauset.com:5432/scalelite
+REDIS_URL=redis://redis@redis.roauset.com:6379
+SCALELITE_TAG=v1.1
+SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
+NGINX_SSL=true
+SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly
