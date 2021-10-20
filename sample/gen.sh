@@ -1,3 +1,16 @@
+echo "Hex64"
+echo "------------------------------------------------------------"
+openssl rand -hex 64
+echo "------------------------------------------------------------"
+echo "Hex32"
+echo "------------------------------------------------------------"
+openssl rand -hex 32
+echo "------------------------------------------------------------"
+echo "Hex8"
+echo "------------------------------------------------------------"
+openssl rand -hex 8
+echo "------------------------------------------------------------"
+echo ""
 echo "ALL IP and DOMAIN"
 read -p "Enter IP of NFS server:: " NFS_IP
 read -p "Enter DOMAIN of NFS server:: " NFS_DM
@@ -13,6 +26,9 @@ read -p "Enter IP of BBB2 server:: " BBB2_IP
 read -p "Enter DOMAIN of BBB2 server:: " BBB2_DM
 read -p "Enter IP of BBB3 server:: " BBB3_IP
 read -p "Enter DOMAIN of BBB3 server:: " BBB3_DM
+read -p "Enter HEX64 value:: " HEX64
+read -p "Enter HEX32 value:: " HEX32
+read -p "Enter HEX8 value:: " HEX8
 echo ""
 echo ""
 echo "//////////////REDIS SERVER/////////////////////"
@@ -26,14 +42,25 @@ echo "IP:			$POSTGESQL_IP"
 echo "Domain:	$POSTGESQL_DM"
 echo "Port: 5432"
 echo "scalelite:"		
-echo "2387a7e143aea828"	
-echo "scalelite"	
+echo "$HEX8"	
+echo "scalelite"
+
+echo "------------Content of create Database---------------------------------"
+echo "sudo -u postgres psql"
+echo "CREATE USER scalelite WITH PASSWORD '$HEX8';"
+echo "CREATE DATABASE scalelite;"
+echo "GRANT ALL PRIVILEGES ON DATABASE "scalelite" to scalelite;"
+echo "ALTER ROLE scalelite SUPERUSER;"
+echo "\q to EXIT SQL"
+read -p "Press enter to continue"
+echo "------------Content of create Database---------------------------------"
+
 echo ""
 echo "//////////////SCALELITE SERVER/////////////////"
 echo "IP:	    $SCAL_IP
 echo "Domain:	$SCAL_DM
-echo "SECRET_KEY_BASE64=c8359900760b05f9dc4c9d5e712c9c683a900af1f7fb0f1163eac87e265c0707aa307c5ef79ae6977f5abe2b61104622e42328d824ba4790e1fe11ecb208fece"
-echo "LOADBALANCER_SECRET32=a6e7c4a36225fb193983961efb386e478a79f911b298877d1eb14d9f4d2b5f66"
+echo "SECRET_KEY_BASE64=$HEX64"
+echo "LOADBALANCER_SECRET32=$HEX32"
 echo "SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton"
 echo ""
 echo ""
@@ -92,6 +119,20 @@ echo "/mnt/scalelite-recordings $SCAL_IP(rw,sync,no_root_squash,no_subtree_check
 echo "--------------------------------------------------------------------------------"
 echo "verify with: sudo exportfs -a"
 echo""
+echo "//////////////FILE /etc/default/scalelite /////////////////////"
+echo ""
+echo" URL_HOST=$SCAL_DM"
+SECRET_KEY_BASE=$HEX64
+LOADBALANCER_SECRET=$HEX32
+DATABASE_URL=postgres://scalelite:$HEX8@$POSTGESQL_DM:5432/scalelite
+REDIS_URL=redis://redis@$REDIS_DM:6379
+SCALELITE_TAG=v1.1
+SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
+NGINX_SSL=true
+SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly
+echo ""
+echo "///////////////END /etc/default/scalelite /////////////////////"
+
 echo "==========FIREWWALL============"
 echo "==============================="
 echo "==========REDIS================"
