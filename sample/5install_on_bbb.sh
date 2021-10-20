@@ -22,10 +22,10 @@ read -p "Enter Domain of this BBB server: " DOMAINBBB1
 echo "Data received"
 read -p "Enter Email to generate ssl: " EMAILBBB1
 echo "Data received"
-read -p "Version BBB want to install 23 or 240: " BBBVER1
-echo "Data received"
+#read -p "Version BBB want to install 23 or 240: " BBBVER1
+#echo "Data received"
 echo ""
-wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-$BBBVER1 -s $DOMAINBBB1 -e $EMAILBBB1 -w -g
+wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-23 -s $DOMAINBBB1 -e $EMAILBBB1 -w -g
 
 echo "BBB DONE"
 echo ""
@@ -38,23 +38,26 @@ groupadd -g 2000 scalelite-spool
 echo "# Add the bigbluebutton user to the group"
 usermod -a -G scalelite-spool bigbluebutton
 
-echo "Edit /etc/fstab file'
-echo "writing to /etc/fstab with scalelite domain/mnt/scalelite-recoring"
-echo "SCALELITEIP:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0 "
+sudo mkdir -p /mnt/scalelite-recordings
+#CHANGE BEFORE USE
+echo "vi /etc/fstab"
+echo "--------------------------------------------------------------------------------"
+echo "143.198.82.130:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: df -h"
+
+
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Edit .env file on BBB"
-
 read -p "Press enter to continue"
 
 cd /root/greenlight
 cp .env 1.env
 
-
 rm -rf docker-compose.yml
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-compose.yml
 echo ""
 echo "Done update file docker-compose.yml"
-
 
 echo "Restaring BBB and Greenlight"
 docker stop greenlight-v2
