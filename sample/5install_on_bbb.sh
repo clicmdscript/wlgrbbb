@@ -16,6 +16,7 @@ echo ""
 sudo apt-get update && sudo apt-get upgrade -y
 echo "updating done, now start install BBB and Greenlight"
 echo ""
+echo ""
 
 read -p "Enter Domain of this BBB server: " DOMAINBBB1
 echo "Data received"
@@ -41,7 +42,9 @@ echo "Edit /etc/fstab file'
 echo "writing to /etc/fstab with scalelite domain/mnt/scalelite-recoring"
 echo "SCALELITEIP:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0 "
 
-echo "Edit .env file on BBB"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Edit .env file on BBB"
+
+read -p "Press enter to continue"
 
 cd /root/greenlight
 cp .env 1.env
@@ -61,20 +64,18 @@ docker-compose up -d
 bbb-conf --restart
 systemctl restart nginx
 systemctl restart nginx
-bbb-conf --clean
-
+#bbb-conf --clean
 
 echo "Infomation of this server"
 echo "Secret KEY"
 bbb-conf --secret
 
+#echo "Setting up record config with scalelite"
 
-echo "Setting up record config with scalelite"
-
-cd /root/
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/setup-recordings.sh
-chmod +x setup-recordings.sh
-./setup-recordings.sh
+#cd /root/
+#wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/setup-recordings.sh
+#chmod +x setup-recordings.sh
+#./setup-recordings.sh
 
 
 
