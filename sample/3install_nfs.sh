@@ -66,15 +66,17 @@ echo "ufw allow from IP4HERE"
 # sudo ufw allow from 192.168.100/24 to any port nfs
 # sudo ufw allow from 192.168.100/24 to any port nfs
 # sudo ufw allow from 192.168.100/24 to any port nfs
-
+yes | sudo ufw enable
+ufw allow from 157.245.196.93 to any port nfs
+ufw allow from 157.245.192.5 to any port nfs
+ufw allow from 188.166.242.86 to any port nfs
+ufw allow from 143.198.82.130 to any port nfs
+ufw allow from 167.172.69.196 to any port nfs
+ufw allow from 143.198.89.90 to any port nfs
 sudo ufw allow 22
-echo "sudo ufw enable"
-echo "sudo ufw reload"
-echo "sudo ufw status"
-
-read -p "Press enter to continue"
-
-sudo ufw enable
+sudo ufw allow 2049
+sudo ufw allow 111
 sudo ufw reload
+read -p "Press enter to continue"
 
 echo "Firewall Config Completed"
