@@ -131,6 +131,9 @@ wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/system
   
 systemctl enable scalelite-recording-importer.service
 systemctl restart scalelite.target
+
+read -p "POSTGESQL HAS BEEN CREATED ? If Yes, Press ENTER to continue setup db from scale"
+
 docker exec -it scalelite-api bin/rake db:setup
   
 echo "Next, please run command to check again"
