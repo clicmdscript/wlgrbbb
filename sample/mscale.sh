@@ -29,12 +29,16 @@ echo "11. sudo ufw status"
 echo "========================================================================"
 echo "12. sudo ufw reload"
 echo "========================================================================"
+echo "13. docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
+echo "========================================================================"
 echo ""
 echo "Q.Quit" 
 echo 
 echo "Enter choice" 
 read choice 
 case $choice in 
+
+
 
 1) sudo /etc/init.d/nfs-kernel-server restart
 	read junk;;
@@ -60,7 +64,8 @@ case $choice in
 	read junk;;
 12) sudo ufw reload
 	read junk;;
- 
+13) docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+	read junk;; 
  
 Q|q) quit=y;; 
 *) echo "Try Again" 
