@@ -37,30 +37,9 @@ groupadd -g 2000 scalelite-spool
 echo "# Add the bigbluebutton user to the group"
 usermod -a -G scalelite-spool bigbluebutton
 
-echo "# Create the spool directory for recording transfer from BigBlueButton"
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/spool
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/spool
-
-echo "# Create the temporary (working) directory for recording import"
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-
-echo "# Create the directory for published recordings"
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/published
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/published
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/published
-
-echo "# Create the directory for unpublished recordings"
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
-
+echo "Edit /etc/fstab file'
 echo "writing to /etc/fstab with scalelite domain/mnt/scalelite-recoring"
-read -p "Enter Scalelite domain scalelite.scalelite.domain: " scaliltedomain
-echo "Data received"
-echo "$scaliltedomain:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0 " > /etc/fstab
+echo "SCALELITEIP:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0 "
 
 echo "Edit .env file on BBB"
 
@@ -86,7 +65,6 @@ bbb-conf --clean
 
 
 echo "Infomation of this server"
-echo "Domain of this server: $DOMAINBBB1"
 echo "Secret KEY"
 bbb-conf --secret
 
