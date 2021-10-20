@@ -85,7 +85,7 @@ cd ..
 mv greenlight/ greenlight-old/
 cd /root
 git clone https://github.com/bigbluebutton/greenlight.git
-cd greenlight
+cd greenlight/
 
 git status
 git remote add upstream https://github.com/bigbluebutton/greenlight.git
@@ -102,8 +102,9 @@ systemctl restart nginx
 rm -rf docker-compose.yml
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-compose.yml
 
-cd ~/greenlight
 docker-compose down
+./scripts/image_build.sh bigbluebutton/greenlight release-v2
+
 docker-compose up -d
 
 docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
@@ -111,8 +112,8 @@ docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake con
 bbb-conf --restart
 systemctl restart nginx
 
-#echo "Setting up record config with scalelite"
 
+#echo "Setting up record config with scalelite"
 #cd /root/
 #wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/setup-recordings.sh
 #chmod +x setup-recordings.sh
