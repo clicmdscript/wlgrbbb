@@ -123,7 +123,7 @@ echo "Check with exportfs command"
 sudo /etc/init.d/nfs-kernel-server restart
 
 echo "mkdir /mnt..........."
-mkdir /mnt/scalelite-recordings
+sudo -p mkdir /mnt/scalelite-recordings
 cd /mnt
 chmod -R 0777 scalelite-recordings/
 echo "done"
@@ -147,12 +147,13 @@ mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 
-echo "##### Allow connect from BBB"
+echo "#CHANGE BEFORE USE Allow connect from BBB"
 echo "vi /etc/exports"
 echo "--------------------------------------------------------------------------------"
-echo "/mnt/scalelite-recordings BBB_IP1(rw,sync,no_root_squash,no_subtree_check)"
-echo "/mnt/scalelite-recordings BBB_IP2(rw,sync,no_root_squash,no_subtree_check)"
-echo "/mnt/scalelite-recordings BBB_IP3(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings 157.245.196.93(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings 157.245.192.5(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings 188.166.242.86(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings 143.198.89.90(rw,sync,no_root_squash,no_subtree_check)"
 echo "--------------------------------------------------------------------------------"
 echo "verify with: sudo exportfs -a"
 read -p "Press enter to continue"
@@ -160,7 +161,7 @@ read -p "Press enter to continue"
 echo "................................................"
 echo "................................................"
 
-echo "This setting to mount folder scalelite to NFS server"
+echo "#CHANGE BEFORE USE This setting to mount folder scalelite to NFS server"
 echo "vi /etc/fstab"
 echo "--------------------------------------------------------------------------------"
 echo "143.198.89.90:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
