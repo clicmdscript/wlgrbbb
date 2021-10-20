@@ -30,21 +30,20 @@ wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic
 echo "BBB DONE"
 echo ""
 echo "NFS COMMON INSTALL"
+echo "NFS config"
+sudo apt-get update
 sudo apt-get install -y nfs-common
+sudo mkdir -p /mnt/scalelite-recordings
+echo "sudo mount serverIP:/mnt/scalelite-recordings /mnt/scalelite-recordings"
+
+echo "FROM BBB AND SCALE RUN CMD MOUNT ABOVE >>>"
+
 
 echo "Done"
 echo "# Create a new group with GID 2000"
 groupadd -g 2000 scalelite-spool
 echo "# Add the bigbluebutton user to the group"
 usermod -a -G scalelite-spool bigbluebutton
-
-sudo mkdir -p /mnt/scalelite-recordings
-#CHANGE BEFORE USE
-echo "vi /etc/fstab"
-echo "--------------------------------------------------------------------------------"
-echo "143.198.82.130:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
-echo "--------------------------------------------------------------------------------"
-echo "verify with: df -h"
 
 
 
