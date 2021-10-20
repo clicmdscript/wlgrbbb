@@ -42,8 +42,6 @@ read -p "Press enter to Restart NFS server"
 
 sudo /etc/init.d/nfs-kernel-server restart
 
-sudo mkdir -p /mnt/scalelite-recordings
-
 sudo exportfs -a
 sudo systemctl restart nfs-kernel-server
 
@@ -60,7 +58,7 @@ read -p "Press enter to continue"
 
 echo "Check with command: exportfs"
 echo "Create DIR for /mnt/scalelite-recordings"
-sudo mkdir -p /mnt/scalelite-recordings
+mkdir -p /mnt/scalelite-recordings
 
 echo "Restart NFS server"
 sudo /etc/init.d/nfs-kernel-server restart
