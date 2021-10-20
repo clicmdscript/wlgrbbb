@@ -31,14 +31,16 @@
 sudo apt-get update
 apt-get install -y nfs-server
 apt-get install -y nfs-kernel-server
+echo ""
+echo "Edit /etc/exports with content below"
+echo "/mnt/scalelite-recordings    *(rw,sync,no_root_squash)"
+echo "Then........."
+echo "cat /etc/exports - ----- To check"
 
-echo "/mnt/scalelite-recordings    *(rw,sync,no_root_squash)" > /etc/exports
-cat /etc/exports
+read -p "Press enter to Restart NFS server"
+
 
 sudo /etc/init.d/nfs-kernel-server restart
-
-#read -p "Enter domain of scalelite server: " dmnamescal
-#echo "Data received"
 
 
 sudo exportfs -a
@@ -48,6 +50,8 @@ sudo systemctl restart nfs-kernel-server
 echo "Manual add in /etc/exports"
 echo "/mnt/scalelite-recordings \" 
 echo "domainscale.dm.com(rw,sync,no_root_squash,no_subtree_check) "
+
+read -p "Press enter to continue"
 
 echo "Check with command: exportfs"
 echo "Create DIR for /mnt/scalelite-recordings"
@@ -68,5 +72,9 @@ echo "sudo ufw enable"
 echo "sudo ufw reload"
 echo "sudo ufw status"
 
+read -p "Press enter to continue"
+
+sudo ufw enable
+sudo ufw reload
 
 echo "Firewall Config Completed"
