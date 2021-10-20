@@ -124,12 +124,14 @@ systemctl restart nginx
 cd /usr/local/bigbluebutton/core/scripts/post_publish
 wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_post_publish.rb
 cd /usr/local/bigbluebutton/core/scripts
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite.yml
+rm -rf scalelite.yml
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite.yml
 cd /usr/local/bigbluebutton/core/scripts
-rm -rf scalelite_batch_import.sh
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite_batch_import.sh
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_batch_import.sh
 chmod +x scalelite_batch_import.sh
-./scalelite_batch_import.sh
+#./scalelite_batch_import.sh
+
+
 
 
 
