@@ -58,8 +58,14 @@ echo "Remove nginx done"
 
 echo "NFS config"
 sudo apt-get install -y nfs-common
-echo "EDIT WITH CONTENT >>>"
-echo "nfsIP:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "CHANGE BEFORE USE - EDIT WITH CONTENT >>>"
+echo "==============================Scalelite server"
+echo "vi /etc/fstab"
+echo "--------------------------------------------------------------------------------"
+echo "143.198.89.90:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: df -h
+
 read -p "Press enter to continue"
 
 echo "......................................................................"
@@ -70,6 +76,32 @@ cd /etc/default
 rm -rf scalelite
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/scalelite
 echo "Download scalelite complete"
+
+echo "mkdir /mnt/scalelite-recordings"
+sudo mkdir -p /mnt/scalelite-recordings
+cd /mnt
+chmod -R 0777 scalelite-recordings/
+echo "done"
+# Create the spool directory for recording transfer from BigBlueButton
+mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
+chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/spool
+chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/spool
+
+# Create the temporary (working) directory for recording import
+mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
+chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
+chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
+
+# Create the directory for published recordings
+mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/published
+chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/published
+chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/published
+
+# Create the directory for unpublished recordings
+mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
+chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
+chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
+
 
 
 echo "Create network"
@@ -121,31 +153,6 @@ sudo /etc/init.d/nfs-kernel-server restart
 
 echo "Check with exportfs command"
 sudo /etc/init.d/nfs-kernel-server restart
-
-echo "mkdir /mnt..........."
-sudo -p mkdir /mnt/scalelite-recordings
-cd /mnt
-chmod -R 0777 scalelite-recordings/
-echo "done"
-# Create the spool directory for recording transfer from BigBlueButton
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/spool
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/spool
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/spool
-
-# Create the temporary (working) directory for recording import
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/recording/scalelite
-
-# Create the directory for published recordings
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/published
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/published
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/published
-
-# Create the directory for unpublished recordings
-mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
-chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
-chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 
 echo "#CHANGE BEFORE USE Allow connect from BBB"
 echo "vi /etc/exports"
