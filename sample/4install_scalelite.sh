@@ -58,8 +58,9 @@ echo "Remove nginx done"
 
 echo "NFS config"
 sudo apt-get install -y nfs-common
-read -p "Enter NFS domain nfs.scalelite.domain: " nfsdomain
-echo "$nfsdomain:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0" > /etc/fstab
+echo "EDIT WITH CONTENT >>>"
+echo "nfsIP:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+read -p "Press enter to continue"
 
 echo "......................................................................"
 echo "Start Install Scalelite"
@@ -84,40 +85,40 @@ docker network create scalelite
 
 echo "Download file .service to /etc/systemd/system"
 
-  cd /etc/systemd/system/
-  sudo rm -rf scalelite.target
-  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite.target
-  systemctl enable scalelite.target
+cd /etc/systemd/system/
+sudo rm -rf scalelite.target
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite.target
+systemctl enable scalelite.target
 
-  sudo rm -rf scalelite-api.service
+sudo rm -rf scalelite-api.service
 wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-api.service
 systemctl enable scalelite-api.service
   
-  sudo rm -rf scalelite-nginx.service
-  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-nginx.service
-  systemctl enable scalelite-nginx.service
+sudo rm -rf scalelite-nginx.service
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-nginx.service
+systemctl enable scalelite-nginx.service
   
-  sudo rm -rf scalelite-poller.service
-  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-poller.service
-  systemctl enable scalelite-poller.service
+sudo rm -rf scalelite-poller.service
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-poller.service
+systemctl enable scalelite-poller.service
   
-  sudo rm -rf scalelite-recording-importer.service
-  wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-recording-importer.service
+sudo rm -rf scalelite-recording-importer.service
+wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/systemd/scalelite-recording-importer.service
   
-  systemctl enable scalelite-recording-importer.service
-  systemctl restart scalelite.target
-  docker exec -it scalelite-api bin/rake db:setup
+systemctl enable scalelite-recording-importer.service
+systemctl restart scalelite.target
+docker exec -it scalelite-api bin/rake db:setup
   
-  echo "Next, please run command to check again"
-  echo "systemctl status scalelite-api.service scalelite-nginx.service "
-  echo "systemctl status scalelite-recording-importer.service scalelite-poller.service"
-
-
-echo -n "Please compplete 2 command with other login SSH, then press N to continue? (y/n) "
+echo "Next, please run command to check again"
+echo "systemctl status scalelite-api.service scalelite-nginx.service "
+echo "systemctl status scalelite-recording-importer.service scalelite-poller.service"
+echo ">>>"
+read -p "RUN 2 CMN above then Press enter to continue"
 
 echo " Try setting up database for scalelite"
 docker exec -it scalelite-api bin/rake db:setup
 
+echo "Fix DB error"
 docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
 echo "Install NFS server to connect with BBB record"
@@ -125,7 +126,6 @@ sudo apt-get update
 apt-get install -y nfs-server
 apt-get install -y nfs-kernel-server
 sudo /etc/init.d/nfs-kernel-server restart
-
 
 echo "Check with exportfs command"
 sudo /etc/init.d/nfs-kernel-server restart
@@ -163,6 +163,7 @@ echo "/mnt/scalelite-recordings IP1(rw,sync,no_root_squash,no_subtree_check) "
 echo "/mnt/scalelite-recordings IP2(rw,sync,no_root_squash,no_subtree_check) "
 echo "/mnt/scalelite-recordings IP3(rw,sync,no_root_squash,no_subtree_check)"
 echo "................................................"
+read -p "Press enter to continue"
 
 echo "................................................"
 echo "................................................"
@@ -171,22 +172,23 @@ echo "##### This setting to mount folder scalelite to NFS server"
 echo "vi /etc/fstab"
 echo "NFSIPADDRESS:/mnt/bbb           /mnt/bbb       nfs     defaults                0       0"
 echo "................................................"
-
+read -p "Press enter to continue"
 
 
 echo "Add ip to mount"
 read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
 echo "Data received"
 echo "Mounting............."
-sudo mount $NFSREADYMNT:/mnt/scalelite-recordings /mnt/scalelite-recordings
+echo "sudo mount NFSIP:/mnt/scalelite-recordings /mnt/scalelite-recordings
 echo "done mount"
+read -p "Press enter to continue"
+
 echo "restart nfs server"
 sudo systemctl start nfs-kernel-server.service
 getent group | grep scal
 echo "Should showing like"
 echo "scalelite-spool:x:2000:bigbluebutton"
 echo "Check with DF -h"
-
 
 
 cd /usr/local/bigbluebutton/core/scripts
