@@ -1,4 +1,7 @@
 #!/bin/bash
+# allow all ip address of Scalelite and BBB
+# read -p "Press enter to continue"
+
 
 sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get update
@@ -14,11 +17,9 @@ sudo service redis-server restart
 
 Echo "enable Firewall"
 
-read -p "Enter IP of Scalelite server: " IPSCALELITE
-echo "Data received"
-echo ""
-ufw allow from $IPSCALELITE
-sudo ufw allow 6379
+echo "PLEASE allow IP of SCALELITE"
+echo "ufw allow from IP"
+echo "sudo ufw allow 6379"
 sudo ufw allow 22
 
 sudo ufw reload
