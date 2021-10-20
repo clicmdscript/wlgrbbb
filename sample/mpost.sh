@@ -22,9 +22,8 @@ echo "Enter choice"
 read choice 
 case $choice in 
 
-1) sudo service postgresql start
+1) sudo service postgresql restart
 	read junk;;
-  
 2) sudo service postgresql start 
 	read junk;;
 3) sudo service postgresql stop 
