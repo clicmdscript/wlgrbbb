@@ -59,6 +59,10 @@ wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-com
 echo ""
 echo "Done update file docker-compose.yml"
 
+echo "PLEASE EDIT .ENV WITH ENDPOINT, SECRET OF SCALELITE AND POSTGEPASSINFO 7DOWN"
+
+read -p "Press enter to continue"
+
 echo "Restaring BBB and Greenlight"
 docker stop greenlight-v2
 docker rm greenlight-v2
