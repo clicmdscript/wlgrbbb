@@ -24,8 +24,13 @@ read -p "Press enter to continue"
 echo "Add all IP address of system to allow at /etc/postgresql/12/main/pg_hba.conf"
 echo "vi /etc/postgresql/12/main/pg_hba.conf"
 echo "With Format below"
-echo "host postgres scalelite 157.230.44.12/32 trust"
-echo "host postgres scalelite 165.22.107.61/32 trust"
+echo "host postgres scalelite IPSCALE/32 trust"
+echo "host postgres scalelite IPREIDIS/32 trust"
+echo "host postgres scalelite IPBB1/32 trust"
+echo "host postgres scalelite IPBB2/32 trust"
+echo "host postgres scalelite IPBB3/32 trust"
+echo "host postgres scalelite IPNFS/32 trust"
+
 
 read -p "Press enter to continue"
 
@@ -36,6 +41,17 @@ echo ""
 echo "sudo service postgresql restart"
 sudo service postgresql restart
 echo ""
+yes | sudo ufw enable
+ufw allow from 157.245.196.93
+ufw allow from 157.245.192.5
+ufw allow from 188.166.242.86
+ufw allow from 143.198.82.130
+ufw allow from 167.172.69.196
+ufw allow from 143.198.89.90
+sudo ufw allow 5432
+sudo ufw allow 22
+sudo ufw reload
+
 echo "Allow IP of scalelite server"
 
 
