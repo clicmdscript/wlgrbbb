@@ -7,13 +7,10 @@ read -p "Enter IP of REDIS server:: " REDIS_IP
 read -p "Enter DOMAIN of REIDS server:: " REDIS_DM
 read -p "Enter IP of SCALELITE server:: " SCAL_IP
 read -p "Enter DOMAIN of SCALELITE server:: " SCAL_DM
-
 read -p "Enter IP of BBB1 server:: " BBB1_IP
 read -p "Enter DOMAIN of BBB1 server:: " BBB1_DM
-
 read -p "Enter IP of BBB2 server:: " BBB2_IP
 read -p "Enter DOMAIN of BBB2 server:: " BBB2_DM
-
 read -p "Enter IP of BBB3 server:: " BBB3_IP
 read -p "Enter DOMAIN of BBB3 server:: " BBB3_DM
 echo ""
@@ -98,7 +95,7 @@ echo""
 echo "==========FIREWWALL============"
 echo "==============================="
 echo "==========REDIS================"
-echo "sudo ufw enable"
+echo "yes | sudo ufw enable"
 echo "ufw allow from $BBB1_IP"
 echo "ufw allow from $BBB2_IP"
 echo "ufw allow from $BBB3_IP"
@@ -110,7 +107,7 @@ echo "sudo ufw allow 22"
 echo "sudo ufw reload"
 echo "==============================="
 echo "==========POSTGESQL============"
-echo "sudo ufw enable"
+echo "yes | sudo ufw enable"
 echo "ufw allow from $BBB1_IP"
 echo "ufw allow from $BBB2_IP"
 echo "ufw allow from $BBB3_IP"
@@ -122,7 +119,7 @@ echo "sudo ufw allow 22"
 echo "sudo ufw reload"
 echo "==============================="
 echo "==========NFS=================="
-echo "sudo ufw enable"
+echo "yes | sudo ufw enable"
 echo "ufw allow from $BBB1_IP"
 echo "ufw allow from $BBB2_IP"
 echo "ufw allow from $BBB3_IP"
