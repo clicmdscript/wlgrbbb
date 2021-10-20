@@ -78,18 +78,45 @@ echo "Infomation of this server"
 echo "Secret KEY"
 bbb-conf --secret
 
+cd /root/greenlight
+cp .env .env1
+docker-compose down
+cd ..
+mv greenlight/ greenlight-old/
+cd /root
+git clone https://github.com/bigbluebutton/greenlight.git
+cd greenlight
+
+git status
+git remote add upstream https://github.com/bigbluebutton/greenlight.git
+git remote -v
+git fetch upstream
+git checkout -b custom-changes upstream/v2
+git status
+
+cp ~/greenlight-old/.env1 ~/greenlight/.env
+sudo cp -r ~/greenlight-old/db ~/greenlight/
+
+cat ./greenlight.nginx | sudo tee /etc/bigbluebutton/nginx/greenlight.nginx
+systemctl restart nginx
+rm -rf docker-compose.yml
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/docker-compose.yml
+
+cd ~/greenlight
+docker-compose down
+docker-compose up -d
+
+docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
+
+bbb-conf --restart
+systemctl restart nginx
+
 #echo "Setting up record config with scalelite"
 
 #cd /root/
 #wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/setup-recordings.sh
 #chmod +x setup-recordings.sh
 #./setup-recordings.sh
-
-
-
-
-
-
 
 
 
