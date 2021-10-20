@@ -121,14 +121,14 @@ echo""
 echo "//////////////FILE /etc/default/scalelite /////////////////////"
 echo ""
 echo" URL_HOST=$SCAL_DM"
-SECRET_KEY_BASE=$HEX64
-LOADBALANCER_SECRET=$HEX32
-DATABASE_URL=postgres://scalelite:$HEX8@$POSTGESQL_DM:5432/scalelite
-REDIS_URL=redis://redis@$REDIS_DM:6379
-SCALELITE_TAG=v1.1
-SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
-NGINX_SSL=true
-SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly
+echo" SECRET_KEY_BASE=$HEX64"
+echo" LOADBALANCER_SECRET=$HEX32"
+echo" DATABASE_URL=postgres://scalelite:$HEX8@$POSTGESQL_DM:5432/scalelite"
+echo" REDIS_URL=redis://redis@$REDIS_DM:6379"
+echo" SCALELITE_TAG=v1.1"
+echo" SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton"
+echo" NGINX_SSL=true"
+echo" SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly"
 echo ""
 echo "///////////////END /etc/default/scalelite /////////////////////"
 
