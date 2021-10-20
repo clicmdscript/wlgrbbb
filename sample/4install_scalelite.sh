@@ -205,6 +205,13 @@ sudo ufw allow 6379
 sudo ufw allow 22
 sudo ufw reload
 
+echo "UPDATE DATABASE AFTER CONNECT ALL SERVER AND CONFIG IN CLIENT"
+#read -p "Press enter to continue"
+
+docker exec -it scalelite-api bin/rake db:setup
+docker exec -t scalelite-api bundle exec rake db:migrate
+docker exec -i scalelite-api bundle exec rake poll:all
 
 
+echo "DONE"
 
