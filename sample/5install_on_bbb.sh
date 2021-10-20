@@ -62,11 +62,12 @@ echo "Done update file docker-compose.yml"
 echo "PLEASE EDIT .ENV WITH ENDPOINT, SECRET OF SCALELITE AND POSTGEPASSINFO 7DOWN"
 
 read -p "Press enter to continue"
+docker-compose down
+./scripts/image_build.sh bigbluebutton/greenlight release-v2
 
 echo "Restaring BBB and Greenlight"
 docker stop greenlight-v2
 docker rm greenlight-v2
-docker-compose down
 docker-compose up -d
 bbb-conf --restart
 systemctl restart nginx
