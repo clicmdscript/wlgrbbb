@@ -42,14 +42,19 @@ read -p "Press enter to Restart NFS server"
 
 sudo /etc/init.d/nfs-kernel-server restart
 
+sudo mkdir -p /mnt/scalelite-recordings
 
 sudo exportfs -a
 sudo systemctl restart nfs-kernel-server
 
 
-echo "Manual add in /etc/exports"
-echo "/mnt/scalelite-recordings \" 
-echo "domainscale.dm.com(rw,sync,no_root_squash,no_subtree_check) "
+echo "CHANGE BEFORE USE - Manual add in /etc/exports"
+echo "vi /etc/exports"
+echo "--------------------------------------------------------------------------------"
+echo "/mnt/scalelite-recordings 143.198.82.130(rw,sync,no_root_squash,no_subtree_check)"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: sudo exportfs -a"
+
 
 read -p "Press enter to continue"
 
