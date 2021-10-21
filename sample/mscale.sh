@@ -31,6 +31,8 @@ echo "12. sudo ufw reload"
 echo "========================================================================"
 echo "13. docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
 echo "========================================================================"
+echo "14. Admin Scalelite command"
+echo "========================================================================"
 echo ""
 echo "Q.Quit" 
 echo 
@@ -66,7 +68,9 @@ case $choice in
 	read junk;;
 13) docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 	read junk;; 
- 
+14) ./adminscalelite.sh
+	read junk;;
+
 Q|q) quit=y;; 
 *) echo "Try Again" 
 sleep 2
