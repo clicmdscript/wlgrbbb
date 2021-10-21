@@ -25,6 +25,7 @@ echo "Data received"
 #read -p "Version BBB want to install 23 or 240: " BBBVER1
 #echo "Data received"
 echo ""
+sudo hostname $DOMAINBBB1
 wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-23 -s $DOMAINBBB1 -e $EMAILBBB1 -w -g
 
 echo "BBB DONE"
