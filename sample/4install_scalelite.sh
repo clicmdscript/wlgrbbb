@@ -172,7 +172,9 @@ ufw allow from 143.198.82.130
 ufw allow from 143.198.89.91
 ufw allow from 143.198.89.90
 ufw allow from 167.172.69.196
+sudo ufw allow 16384:32768/udp
 sudo ufw allow 6379
+sudo ufw allow 5432
 sudo ufw allow 22
 sudo ufw reload
 
