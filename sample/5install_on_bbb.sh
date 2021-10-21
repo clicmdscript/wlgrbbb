@@ -132,9 +132,12 @@ mkdir -p /mnt/scalelite-recordings/var/bigbluebutton
 cd /usr/local/bigbluebutton/core/scripts
 wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_batch_import.sh
 chmod +x scalelite_batch_import.sh
-#./scalelite_batch_import.sh
+./scalelite_batch_import.sh
 
 
+cd /root
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mbbb.sh
+chmod +x mbbb.sh
 
 
 
