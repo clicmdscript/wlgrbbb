@@ -103,8 +103,6 @@ mkdir -p /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chown 1000:2000 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 chmod 0775 /mnt/scalelite-recordings/var/bigbluebutton/unpublished
 
-
-
 echo "Create network"
 docker network create scalelite
 
@@ -149,51 +147,17 @@ docker exec -it scalelite-api bin/rake db:setup
 echo "Fix DB error"
 docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
-#echo "Install NFS server to connect with BBB record"
-#sudo apt-get update
-#apt-get install -y nfs-kernel-server
-#sudo /etc/init.d/nfs-kernel-server restart
-
-#echo "Check with exportfs command"
-#sudo /etc/init.d/nfs-kernel-server restart
-
-#echo "#CHANGE BEFORE USE Allow connect from BBB"
-#echo "vi /etc/exports"
-#echo "--------------------------------------------------------------------------------"
-#echo "/mnt/scalelite-recordings 157.245.196.93(rw,sync,no_root_squash,no_subtree_check)"
-#echo "/mnt/scalelite-recordings 157.245.192.5(rw,sync,no_root_squash,no_subtree_check)"
-#echo "/mnt/scalelite-recordings 188.166.242.86(rw,sync,no_root_squash,no_subtree_check)"
-#echo "/mnt/scalelite-recordings 143.198.89.90(rw,sync,no_root_squash,no_subtree_check)"
-#echo "--------------------------------------------------------------------------------"
-#echo "verify with: sudo exportfs -a"
-#read -p "Press enter to continue"
-
-echo "................................................"
 echo "................................................"
 
 echo "#CHANGE BEFORE USE This setting to mount folder scalelite to NFS server"
 echo "vi /etc/fstab"
 echo "--------------------------------------------------------------------------------"
-echo "143.198.89.90:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "IPNFS:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "and"
+echo :sudo mount file.roauset.com:/mnt/scalelite-recordings /mnt/scalelite-recordings"
 echo "--------------------------------------------------------------------------------"
 echo "verify with: df -h"
 read -p "Press enter to continue"
-
-
-#echo "Add ip to mount"
-#read -p "Enter domain of NFS server for MOUNTING NOW: " NFSREADYMNT
-#echo "Data received"
-#echo "Mounting............."
-#echo "sudo mount NFSIP:/mnt/scalelite-recordings /mnt/scalelite-recordings
-#echo "done mount"
-#read -p "Press enter to continue"
-
-#echo "restart nfs server"
-#sudo systemctl start nfs-kernel-server.service
-#getent group | grep scal
-#echo "Should showing like"
-#echo "scalelite-spool:x:2000:bigbluebutton"
-#echo "Check with DF -h"
 
 ufw --force enable
 ufw allow from 157.245.196.93
