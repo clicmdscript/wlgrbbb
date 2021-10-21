@@ -88,3 +88,7 @@ sudo ufw reload
 read -p "Press enter to continue"
 
 echo "Firewall Config Completed"
+
+cd /root
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mnfs.sh
+chmod +x mnfs.sh
