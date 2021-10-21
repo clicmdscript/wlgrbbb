@@ -30,6 +30,8 @@ ufw allow from 143.198.89.90
 sudo ufw allow 6379
 sudo ufw allow 22
 sudo ufw reload
+sudo ufw status verbose
+
 cd /root
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mredis.sh
 chmod +x mredis.sh
