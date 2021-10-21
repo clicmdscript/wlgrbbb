@@ -2,6 +2,10 @@
 # allow all ip address of Scalelite and BBB
 # read -p "Press enter to continue"
 
+read -p "Enter Domain of HOSTNAME this server: " DOMAINBBBX
+echo "Data received"
+sudo hostname $DOMAINBBBX
+
 
 sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get update
