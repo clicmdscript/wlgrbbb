@@ -47,7 +47,7 @@ echo ""
 echo "sudo service postgresql restart"
 sudo service postgresql restart
 echo ""
-yes | sudo ufw enable
+ufw --force enable
 ufw allow from 157.245.196.93
 ufw allow from 157.245.192.5
 ufw allow from 188.166.242.86
