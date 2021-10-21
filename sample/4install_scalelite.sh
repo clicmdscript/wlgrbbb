@@ -55,6 +55,8 @@ apt-get remove nginx nginx-common
 
 echo "Remove nginx done"
 
+echo "MAKE SURE FIREWALL OF DO ALLOW ALL FOR ALL IP"
+read -p "Press enter to continue"
 
 echo "NFS config"
 sudo apt-get update
@@ -216,6 +218,8 @@ wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/adminscale
 chmod +x adminscalelite.sh
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mscale.sh
 chmod +x mscale.sh
+
+echo "download and chomd for adminscalelite.sh and mscale.sh completed"
 
 echo "DONE"
 
