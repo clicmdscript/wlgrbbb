@@ -1,0 +1,21 @@
+vi /etc/postgresql/12/main/postgresql.conf
+change to *
+
+
+
+vi /etc/postgresql/12/main/pg_hba.conf
+
+# IPv4 local connections:
+host    all             all             0.0.0.0/0            md5
+
+
+
+# replication privilege.
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            md5
+host    replication     all             ::1/128                 md5
+host    postgres     scalelite             167.172.69.196/32            trust
+host    postgres     scalelite             143.198.82.130/32            trust
+host    postgres     scalelite             157.245.196.93/32            trust
+host    postgres     scalelite             157.245.192.5/32            trust
+host    postgres     scalelite             188.166.242.86/32            trust
