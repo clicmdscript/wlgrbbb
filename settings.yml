@@ -23,7 +23,7 @@ public:
     # The device is changed immediately, without the need to rejoin
     # audio. Default value is true
     # Firefox users: if no output devices is shown, you may set the flag
-    # "media.setsinkid.enabled" to make it work properly
+    # "media.setsinkid.enabled"  to make it work properly
     # enableDynamicAudioDeviceSelection: true
     #
     clientTitle: OnMeet
