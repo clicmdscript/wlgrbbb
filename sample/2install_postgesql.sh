@@ -62,6 +62,8 @@ ufw allow from 143.198.89.90
 sudo ufw allow 5432
 sudo ufw allow 22
 sudo ufw reload
+sudo ufw status verbose
+
 
 echo "Allow IP of scalelite server"
 
