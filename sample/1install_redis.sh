@@ -16,7 +16,7 @@ echo "Restaring redis service"
 sudo service redis-server restart
 
 ##CHANGE BEFORE USE
-yes | sudo ufw enable
+ufw --force enable
 ufw allow from 157.245.196.93
 ufw allow from 157.245.192.5
 ufw allow from 188.166.242.86
