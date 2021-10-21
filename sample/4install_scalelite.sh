@@ -212,6 +212,10 @@ docker exec -it scalelite-api bin/rake db:setup
 docker exec -t scalelite-api bundle exec rake db:migrate
 docker exec -i scalelite-api bundle exec rake poll:all
 
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/adminscalelite.sh
+chmod +x adminscalelite.sh
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mscale.sh
+chmod +x mscale.sh
 
 echo "DONE"
 
