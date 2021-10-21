@@ -34,7 +34,16 @@ echo "NFS config"
 sudo apt-get update
 sudo apt-get install -y nfs-common
 sudo mkdir -p /mnt/scalelite-recordings
-echo "sudo mount serverIP:/mnt/scalelite-recordings /mnt/scalelite-recordings"
+
+echo "#CHANGE BEFORE USE This setting to mount folder scalelite to NFS server"
+echo "vi /etc/fstab"
+echo "--------------------------------------------------------------------------------"
+echo "IPNFS:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
+echo "and"
+echo :sudo mount file.roauset.com:/mnt/scalelite-recordings /mnt/scalelite-recordings"
+echo "--------------------------------------------------------------------------------"
+echo "verify with: df -h"
+read -p "Press enter to continue"
 
 echo "FROM BBB AND SCALE RUN CMD MOUNT ABOVE >>>"
 
