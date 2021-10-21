@@ -7,6 +7,11 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 apt-cache policy docker-ce
 sudo apt install -y docker-ce
 
+
+read -p "Enter Domain of this server: " DOMAINBBBX
+echo "Data received"
+sudo hostname $DOMAINBBBX
+
 echo "Install Docker completed"
 echo ""
 
