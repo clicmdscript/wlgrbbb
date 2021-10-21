@@ -93,6 +93,8 @@ sudo ufw allow 22
 sudo ufw allow 2049
 sudo ufw allow 111
 sudo ufw reload
+sudo ufw status verbose
+
 read -p "Press enter to continue"
 
 echo "Firewall Config Completed"
