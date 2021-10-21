@@ -28,6 +28,10 @@
 # mount | tail -1
 # 192.168.1.22:/share on /access type nfs (rw,addr=192.168.1.22)
 
+read -p "Enter Domain of HOSTNAME this server: " DOMAINBBBX
+echo "Data received"
+sudo hostname $DOMAINBBBX
+
 sudo apt-get update
 apt install -y nfs-server
 apt install nfs-kernel-server
