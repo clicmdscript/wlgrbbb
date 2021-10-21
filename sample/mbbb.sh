@@ -31,6 +31,8 @@ echo "12. sudo bbb-record --enable presentation"
 echo "========================================================================"
 echo "13. sudo bbb-record --disable presentation"
 echo "========================================================================"
+echo "14. systemctl restart nginx"
+echo "========================================================================"
 echo "ex. sudo bbb-conf --setip domain.example.com"
 echo "========================================================================"
 echo "ex. sudo bbb-record --rebuil 6e35e3b2778883f5db637d7a5dba0a427f692e91-1379965122603"
@@ -38,6 +40,18 @@ echo "========================================================================"
 echo "ex. sudo bbb-record --delete 6e35e3b2778883f5db637d7a5dba0a427f692e91-1379965122603"
 echo "========================================================================"
 echo "ex. sudo bbb-record --republish 6e35e3b2778883f5db637d7a5dba0a427f692e91-1379965122603"
+echo "===================GREENLIGHT==========================================="
+echo "15. ./scripts/image_build.sh bigbluebutton/greenlight release-v2"
+echo "========================================================================"
+echo "16. docker-compose down"
+echo "========================================================================"
+echo "17. docker-compose up -d"
+echo "========================================================================"
+echo "docker exec greenlight-v2 bundle exec rake user:create["Duy Quan","nguyenduyquan.pros@gmail.com","Quan2110","admin"]"
+echo "========================================================================"
+echo "18. sudo ufw status"
+echo "========================================================================"
+echo "19. sudo ufw reload"
 echo "========================================================================"
 echo ""
 echo "Q.Quit" 
@@ -73,7 +87,20 @@ case $choice in
 	read junk;;
 13) sudo bbb-record --disable presentation
 	read junk;; 
-  
+14) systemctl restart nginx
+	read junk;; 
+15) ./scripts/image_build.sh bigbluebutton/greenlight release-v2
+	read junk;;
+16) docker-compose down
+	read junk;; 
+17) docker-compose up -d
+	read junk;; 
+18) sudo ufw status
+	read junk;; 
+19) sudo ufw reload
+	read junk;; 
+
+	
 Q|q) quit=y;; 
 *) echo "Try Again" 
 sleep 2
