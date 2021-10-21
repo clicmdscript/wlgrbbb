@@ -1,0 +1,200 @@
+type: install
+id: bigbluebutton
+version: 0.4
+name: BigBlueButton server
+homepage: https://bigbluebutton.org/
+settings:
+    domain: 
+        fields: 
+          - name: displayfield
+            type: displayfield
+            hideLabel: true
+            markup: Make sure the the new domain is bound already to the environment via CNAME or via A Record 
+          - name: domain
+            hideLabel: true
+            caption: Domain
+            type: string
+    fields:
+    - type: checkbox
+      name: greenlight
+      caption: Install GreenLight front-end management
+      value: true
+    - type: string
+      name: cloudletsfixed
+      value: 24
+      hidden: true
+    - type: string
+      name: cloudlets
+      value: 64
+      hidden: true
+    - type: string
+      name: disklimit
+      value: 100
+      hidden: true
+categories:
+ - apps/e-commerce
+ 
+description:
+    text: description.md
+    short: BigBlueButton is an open-source web conferencing system.
+logo: bigbluebutton.png
+
+nodes:
+- fixedCloudlets: ${settings.cloudletsfixed}
+  flexibleCloudlets: ${settings.cloudlets}
+  diskLimit: ${settings.disklimit}
+  nodeGroup: cp
+  extip: true
+  image: mirhosting/bigbluebutton
+  addons: change-domain
+    
+skipNodeEmails: true
+onInstall:
+    - fix-redis
+    - fix-freeswitch
+    - install-bbb
+    - fix-startups
+    - fix-ips
+    - if (${settings.greenlight:true}):
+        - install-greenlight
+    - get-secret
+
+actions:
+    fix-redis:
+        - cmd[cp]: |-
+            chown -R redis:redis /var/lib/redis
+            chown -R redis:redis /var/log/redis
+            chown -R redis:redis /etc/redis
+            rm /etc/systemd/system/redis.service
+            ln -s /lib/systemd/system/redis-server.service /etc/systemd/system/redis-server.service
+            sed -i 's|PrivateTmp=yes|PrivateTmp=no|g' /etc/systemd/system/redis-server.service
+            systemctl daemon-reload
+            systemctl restart redis-server
+    
+    fix-freeswitch:
+        - cmd[cp]: |-
+            sed -i 's|LimitCORE=infinity|#LimitCORE=infinity|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|LimitNOFILE=100000|#LimitNOFILE=100000|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|LimitNPROC=60000|#LimitNPROC=60000|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|LimitSTACK=250000|#LimitSTACK=250000|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|LimitRTPRIO=infinity|#LimitRTPRIO=infinity|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|LimitRTTIME=7000000|#LimitRTTIME=7000000|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|IOSchedulingClass=realtime|#IOSchedulingClass=realtime|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|IOSchedulingPriority=2|#IOSchedulingPriority=2|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|CPUSchedulingPolicy=rr|#CPUSchedulingPolicy=rr|g' /lib/systemd/system/freeswitch.service
+            sed -i 's|CPUSchedulingPriority=89|#CPUSchedulingPriority=89|g' /lib/systemd/system/freeswitch.service
+            systemctl daemon-reload
+            
+    fix-ips:
+        - cmd[cp]: |-
+            sed -i 's|local_ip_v4=.*|local_ip_v4=${nodes.cp.extIPs}"/>|g' /opt/freeswitch/etc/freeswitch/vars.xml
+            sed -i 's|external_rtp_ip=.*|external_rtp_ip=stun:stun.freeswitch.org"/>|g' /opt/freeswitch/etc/freeswitch/vars.xml
+            sed -i 's|external_sip_ip=.*|external_sip_ip=stun:stun.freeswitch.org"/>|g' /opt/freeswitch/etc/freeswitch/vars.xml
+            sed -i 's|proxy_pass.*|proxy_pass https://${nodes.cp.extIPs}:7443;|g' /etc/bigbluebutton/nginx/sip.nginx
+            sed -i 's|localIpAddress.*|localIpAddress: ${nodes.cp.extIPs}|g' /usr/local/bigbluebutton/bbb-webrtc-sfu/config/default.yml
+            sed -i 's|listen-ip.*|listen-ip" value="::"/>|g' /opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
+            sed -i 's|bbb.sip.app.ip=.*|bbb.sip.app.ip=${nodes.cp.extIPs}|g' /usr/share/red5/webapps/sip/WEB-INF/bigbluebutton-sip.properties
+            sed -i 's|freeswitch.ip=.*|freeswitch.ip=${nodes.cp.extIPs}|g' /usr/share/red5/webapps/sip/WEB-INF/bigbluebutton-sip.properties
+            sed -i 's|stun.freeswitch.org|stunbb.mirhosting.com|g' /opt/freeswitch/conf/vars.xml
+            bbb-conf --restart
+            
+    fix-startups:
+        - cmd[cp]: |-
+            systemctl enable freeswitch
+            systemctl enable redis-server
+            systemctl enable red5
+            systemctl enable mongod
+            systemctl enable bbb-html5
+            systemctl enable bbb-webrtc-sfu
+            systemctl enable kurento-media-server
+            systemctl enable etherpad
+            systemctl enable bbb-web
+            systemctl enable bbb-webhooks
+            systemctl enable bbb-transcode-akka
+            systemctl enable bbb-lti
+            systemctl enable bbb-apps-akka
+            systemctl enable bbb-fsesl-akka
+            systemctl enable bbb-record-core.timer
+            systemctl enable bbb-rap-archive-worker
+            systemctl enable bbb-rap-sanity-worker
+            systemctl enable bbb-rap-process-worker
+            systemctl enable bbb-rap-publish-worker
+            systemctl enable fail2ban
+            systemctl start fail2ban
+            sed -i 's|100000|300000|g' /usr/lib/systemd/system/kurento-media-server.service
+            systemctl daemon-reload
+            sed -i 's|Xmx384m|Xmx2048m|g' /usr/share/bbb-web/run-prod.sh
+            sed -i 's|Xms384m|Xms512m|g' /usr/share/bbb-web/run-prod.sh
+
+    install-bbb:
+        - cmd[cp]: |-
+            cp /etc/resolv.conf /root/resolv.conf && echo "nameserver 8.8.8.8" > /etc/resolv.conf
+            systemctl stop unattended-upgrades.service
+            newSalt=$(openssl rand -hex 16)
+            bbb-conf --setsecret ${newSalt}
+            bash /bbb-install.sh -v xenial-220 -s ${env.domain} -e ${user.email} -c stunbb.mirhosting.com:c99a06b2d7d3377499d5f6bc80674dbb
+
+    install-greenlight:
+        - cmd[cp]: |-
+            bash /root/install-greenlight.sh
+            sed -i 's|on-failure|unless-stopped|g' /root/greenlight/docker-compose.yml
+            cd /root/greenlight && docker-compose stop && docker-compose up -d
+            
+    get-secret:
+            - cmd[cp]: bbb-conf --secret | grep 'Secret:' | awk '{print $2}'
+            - setGlobals:
+                token: ${response.out}
+
+addons:
+  - id: change-domain
+    name: Domain Configuration
+    description: You can change your current domain and issue valid Let's Encrypt certificates. 
+    buttons:    
+      - confirmText: Are you sure you want to proceed?
+        loadingText: Changing domain...
+        action: changeDomain
+        caption: Change
+        successText: The domain has been updated successfully!
+        settings: domain
+        title: Please specify the new domain name 
+        
+    actions:
+      changeDomain:
+        - script: |
+            var email="${user.email}", domain = "${settings.domain}";
+            return {result:0, domain:domain, email:email}
+        - cmd[cp]: |-
+            bash /root/update-ssl.sh -s ${response.domain} -e ${response.email}
+
+startPage: https://${env.domain}
+success:
+    text:
+    en: |
+        Below you will find your admin panel link, username and password.
+        
+        **Admin panel URL:** [https://${env.domain}/](https://${env.domain}/)   
+        **Public IPv4:** ${nodes.cp.extIPs}   
+        
+        If you installed Greenlight, use following login password and change them immediately after first login.   
+        **Greenlight Admin Name:** admin@example.com   
+        **Greenlight Admin Password:** administrator
+        
+        In case you need to connect with API, you may use following API information:   
+        **API URL:** ${env.protocol}://${env.domain}/bigbluebutton/   
+        **API Secret:** ```${globals.token}```
+    
+    ru: |
+        Ниже вы найдете ссылку на панель администратора, имя пользователя и пароль.
+        
+        **Admin panel URL:** [https://${env.domain}/](https://${env.domain}/)   
+        **Public IPv4:** ${nodes.cp.extIPs}   
+
+        Если вы установили Greenlight, используйте следующий пароль для входа и измените его сразу после первого входа.  
+        **Greenlight Admin Name:** admin@example.com   
+        **Greenlight Admin Password:** administrator
+        
+        Если вам нужно подключиться через API, вы можете использовать следующую информацию:   
+        **API URL:** ${env.protocol}://${env.domain}/bigbluebutton/   
+        **API Secret:** ```${globals.token}```
+    
+baseUrl: https://gitlab.mirhosting.com/jps-templates/bigbluebutton/raw/master/
