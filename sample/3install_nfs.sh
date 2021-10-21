@@ -74,7 +74,7 @@ echo "ufw allow from IP4HERE"
 # sudo ufw allow from 192.168.100/24 to any port nfs
 # sudo ufw allow from 192.168.100/24 to any port nfs
 # sudo ufw allow from 192.168.100/24 to any port nfs
-yes | sudo ufw enable
+ufw --force enable
 ufw allow from 157.245.196.93 to any port nfs
 ufw allow from 157.245.192.5 to any port nfs
 ufw allow from 188.166.242.86 to any port nfs
