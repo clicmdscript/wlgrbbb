@@ -144,7 +144,6 @@ wget https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigblu
 chmod +x scalelite_batch_import.sh
 ./scalelite_batch_import.sh
 
-
 cd /root
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mbbb.sh
 chmod +x mbbb.sh
@@ -166,6 +165,4 @@ sudo ufw allow 443
 sudo ufw allow 22
 sudo ufw reload
 sudo ufw status verbose
-
-
 
