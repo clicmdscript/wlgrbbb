@@ -224,34 +224,6 @@ chmod +x mscale.sh
 echo "download and chomd for adminscalelite.sh and mscale.sh completed"
 
 echo ""
-echo "//////////////////install Monitor for this server///////////////////////////////////////"
-cd /
-wget https://github.com/greenstatic/bigbluebutton-exporter/archive/refs/tags/v0.6.0.tar.gz
-tar -xzf v0.6.0.tar.gz
-mv bigbluebutton-exporter-0.6.0/ bbb-monitoring/
-cd /etc/bigbluebutton/nginx/
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/monitor/monitoring.nginx
-cd ~/bbb-monitoring
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/monitor/docker-compose.yaml
-wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/monitor/prometheus.yaml
-
-echo "wget file done"
-echo "now will edit API and secret key"
-echo "Your key will be"
-cat /etc/default/scalelite
-
-echo "Enter you URL and Key here"
-
-read -p "API_BASE_URL=https://example.com/bigbluebutton/api/::" dmmonitor
-read -p "API_SECRET=SECRET HEX32::" secret32
-
-echo 'API_BASE_URL=https://$dmmonitor/bigbluebutton/api/' &>>bbb_exporter_secrets.env
-echo 'API_SECRET=$secret32' &>>bbb_exporter_secrets.env
-cd ~/bbb-monitoring
-sudo docker-compose up -d
-
-echo "All done"
-echo "Login to Grafana (https://example.com/monitoring) in your web browser (admin:admin) and change the password."
 
 echo "INSTALL COMPLETED"
 
