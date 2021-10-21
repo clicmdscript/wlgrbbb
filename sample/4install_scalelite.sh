@@ -193,7 +193,7 @@ read -p "Press enter to continue"
 #echo "scalelite-spool:x:2000:bigbluebutton"
 #echo "Check with DF -h"
 
-yes | sudo ufw enable
+ufw --force enable
 ufw allow from 157.245.196.93
 ufw allow from 157.245.192.5
 ufw allow from 188.166.242.86
