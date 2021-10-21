@@ -212,8 +212,10 @@ echo "UPDATE DATABASE AFTER CONNECT ALL SERVER AND CONFIG IN CLIENT"
 
 docker exec -it scalelite-api bin/rake db:setup
 docker exec -t scalelite-api bundle exec rake db:migrate
+docker exec -it scalelite-api bin/rake db:setup -DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 docker exec -i scalelite-api bundle exec rake poll:all
 
+cd /root
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/adminscalelite.sh
 chmod +x adminscalelite.sh
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mscale.sh
