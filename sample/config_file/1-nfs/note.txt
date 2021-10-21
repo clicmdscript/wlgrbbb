@@ -1,0 +1,11 @@
+vi /etc/exports
+
+/mnt/scalelite-recordings \
+157.245.196.93(rw,sync) \
+157.245.192.5(rw,sync) \
+188.166.242.86(rw,sync) \
+143.198.82.130(rw,sync)
+
+
+PATH
+cd /mnt/scalelite-recordings/var/bigbluebutton/
