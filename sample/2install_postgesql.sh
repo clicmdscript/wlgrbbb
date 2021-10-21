@@ -60,4 +60,9 @@ sudo ufw reload
 
 echo "Allow IP of scalelite server"
 
+cd /root
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mpost.sh
+chmod +x mpost.sh
+
+
 
