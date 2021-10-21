@@ -150,5 +150,20 @@ wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mbbb.sh
 chmod +x mbbb.sh
 
 
+ufw --force enable
+ufw allow from 157.245.196.93
+ufw allow from 157.245.192.5
+ufw allow from 188.166.242.86
+ufw allow from 143.198.82.130
+ufw allow from 143.198.89.91
+ufw allow from 143.198.89.90
+ufw allow from 167.172.69.196
+sudo ufw allow 16384:32768/udp
+sudo ufw allow 6379
+sudo ufw allow 5432
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw allow 22
+sudo ufw reload
 
 
