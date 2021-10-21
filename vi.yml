@@ -316,7 +316,7 @@ vi:
         username: "Tên đăng nhập là %{email}."
       password_reset:
         title: 'Đặt lại mật khẩu'
-        welcome: "Email<b>%{email}</b>đã yêu cầu đặt lại mật khẩu mới"
+        welcome: "Email<b>%{email}</b>đã yêu cầu đặt lại mật khẩu mới "
         message: 'Nếu bạn yêu cầu đổi mật khẩu mới, xin hãy bấm vào link bên dưới để đổi mật khẩu:'
         reset_link: Đặt lại mật khẩu
         expire: Liên kết này sẽ hết hạn trong hai giờ.
