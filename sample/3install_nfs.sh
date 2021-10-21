@@ -49,7 +49,11 @@ sudo systemctl restart nfs-kernel-server
 echo "CHANGE BEFORE USE - Manual add in /etc/exports"
 echo "vi /etc/exports"
 echo "--------------------------------------------------------------------------------"
-echo "/mnt/scalelite-recordings 143.198.82.130(rw,sync,no_root_squash,no_subtree_check)"
+echo "/mnt/scalelite-recordings \"
+echo "157.245.196.93(rw,sync) \"
+echo "157.245.192.5(rw,sync) \"
+echo "188.166.242.86(rw,sync) \"
+echo "143.198.82.130(rw,sync)"
 echo "--------------------------------------------------------------------------------"
 echo "verify with: sudo exportfs -a"
 
