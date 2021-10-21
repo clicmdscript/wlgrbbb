@@ -46,7 +46,7 @@ echo "--------------------------------------------------------------------------
 echo "verify with: df -h"
 read -p "Press enter to continue"
 
-echo "FROM BBB AND SCALE RUN CMD MOUNT ABOVE >>>"
+echo "FROM BBB AND SCALE RUN CMD MOUNT ABOVE"
 
 
 echo "Done"
@@ -57,7 +57,7 @@ usermod -a -G scalelite-spool bigbluebutton
 
 
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Edit .env file on BBB"
+echo "Edit .env file on BBB"
 read -p "Press enter to continue"
 
 cd /root/greenlight
