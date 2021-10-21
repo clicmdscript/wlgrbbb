@@ -177,6 +177,8 @@ sudo ufw allow 6379
 sudo ufw allow 5432
 sudo ufw allow 22
 sudo ufw reload
+sudo ufw status verbose
+
 
 echo "UPDATE DATABASE AFTER CONNECT ALL SERVER AND CONFIG IN CLIENT"
 #read -p "Press enter to continue"
