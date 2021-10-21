@@ -2,6 +2,11 @@
 #NOTE
 # Add all ipaddress of scalelite, BBB in firewall
 
+read -p "Enter Domain of HOSTNAME this server: " DOMAINBBBX
+echo "Data received"
+sudo hostname $DOMAINBBBX
+
+
 echo "Update and Install Postgesql"
 sudo apt-get update
 sudo apt-get install postgresql
