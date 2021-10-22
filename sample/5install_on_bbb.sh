@@ -147,6 +147,17 @@ chmod +x scalelite_batch_import.sh
 cd /root
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mbbb.sh
 chmod +x mbbb.sh
+echo "=================================================================="
+echo "Add crontab for Checking mounting /mnt/scalelite-recordings. auto mount after startup"
+
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/croncheckmount.sh
+chmod +x croncheckmount.sh
+
+#!/bin/bash
+
+cron="@reboot sh /root/croncheckmount.sh"
+(crontab -u root -l; echo "$cron" ) | crontab -u root -
+echo "==============================DONE================================"
 
 
 ufw --force enable
