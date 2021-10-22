@@ -164,6 +164,22 @@ echo "--------------------------------------------------------------------------
 echo "verify with: df -h"
 read -p "Press enter to continue"
 
+
+echo "=================================================================="
+cd /root/
+echo "Add crontab for Checking mounting /mnt/scalelite-recordings. auto mount after startup"
+
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/croncheckmount.sh
+chmod +x croncheckmount.sh
+
+#!/bin/bash
+
+cron="@reboot sh /root/croncheckmount.sh"
+(crontab -u root -l; echo "$cron" ) | crontab -u root -
+echo "==============================DONE================================"
+
+
+
 ufw --force enable
 ufw allow from 157.245.196.93
 ufw allow from 157.245.192.5
