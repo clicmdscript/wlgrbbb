@@ -194,7 +194,12 @@ chmod +x adminscalelite.sh
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/mscale.sh
 chmod +x mscale.sh
 
-echo "download and chomd for adminscalelite.sh and mscale.sh completed"
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/addserver.sh
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/enableserver.sh
+chmod +x addserver.sh
+chmod +x enableserver.sh
+
+echo "download and chomd for adminscalelite.sh, mscale.sh, addserver.sh, enableserver.sh completed"
 
 echo ""
 
