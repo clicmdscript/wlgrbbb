@@ -7,18 +7,18 @@ sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/2.sh
 sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/3changeaudio.sh
 
 chmod +x 1.sh && chmod +x 2.sh && chmod +x menu.sh && chmod +x 3changeaudio.sh
-echo".................................................."
+echo ".................................................."
 echo "Now docker down for process with 1.sh"
-echo".................................................."
+echo ".................................................."
 
 ./1.sh
 #sudo wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample.env
 
-echo".................................................."
+echo ".................................................."
 echo "Remove and update new code"
-echo".................................................."
+echo ".................................................."
 
-echo"/root/greenlight/app/views/shared"
+echo "/root/greenlight/app/views/shared"
 cd /root/greenlight/app/views/shared
 sudo rm -rf _footer.html.erb
 sudo rm -rf _header.html.erb
@@ -149,23 +149,23 @@ sudo rm -rf favicon.ico
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/index.html
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
 
-echo".................................................."
+echo ".................................................."
 echo "Now Docker UP -D, Restart Nginx & BBB"
-echo".................................................."
+echo ".................................................."
 
 cd /root/greenlight
 ./2.sh
 
-echo".................................................."
+echo ".................................................."
 echo "BBB -- Clean"
-echo".................................................."
+echo ".................................................."
 
 sudo bbb-conf --clean
 
 
-echo".................................................."
+echo ".................................................."
 echo "All done !!!"
-echo".................................................."
+echo ".................................................."
 
 
 
