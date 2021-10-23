@@ -1,5 +1,5 @@
 echo "THIS PATCH FOR vs2.roauset.com"
-read -p "if correct | Press enter to continue or cancel with CMD C."
+read -p "if correct | Press enter to continue or cancel with CMD C. "
 echo ""
 echo "/root/greenlight"
 echo "Download menu.sh & 1.sh & 2.sh & 3changeaudio.sh"
