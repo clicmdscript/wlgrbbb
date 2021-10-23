@@ -157,8 +157,8 @@ chmod +x croncheckmount.sh
 
 cron="@reboot sh /root/croncheckmount.sh"
 (crontab -u root -l; echo "$cron" ) | crontab -u root -
-echo "==============================DONE================================"
 
+echo ""
 
 ufw --force enable
 ufw allow from 157.245.196.93
@@ -176,4 +176,3 @@ sudo ufw allow 443
 sudo ufw allow 22
 sudo ufw reload
 sudo ufw status verbose
-
