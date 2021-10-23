@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8054353-eb44-4daa-bb5c-f6f7ef050c82" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_footer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/_footer.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bigbluebutton_error.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/bigbluebutton_error.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/help.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/sample.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_changeimg.sh" beforeDir="false" afterPath="$PROJECT_DIR$/_changeimg.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_wl.sh" beforeDir="false" afterPath="$PROJECT_DIR$/_wl.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/gen.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sample/gen.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,12 +97,12 @@
       <updated>1634797382361</updated>
       <workItem from="1634797384644" duration="32000" />
       <workItem from="1634893353719" duration="898000" />
-      <workItem from="1634953841023" duration="523000" />
+      <workItem from="1634953841023" duration="1024000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1453000" />
+    <option name="totallyTimeSpent" value="1954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="982" extended-state="6" />
