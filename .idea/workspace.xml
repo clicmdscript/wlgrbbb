@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8054353-eb44-4daa-bb5c-f6f7ef050c82" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_changeimg.sh" beforeDir="false" afterPath="$PROJECT_DIR$/_changeimg.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_wl.sh" beforeDir="false" afterPath="$PROJECT_DIR$/_wl.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/gen.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sample/gen.sh" afterDir="false" />
-    </list>
+    <list default="true" id="a8054353-eb44-4daa-bb5c-f6f7ef050c82" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,12 +93,12 @@
       <updated>1634797382361</updated>
       <workItem from="1634797384644" duration="32000" />
       <workItem from="1634893353719" duration="898000" />
-      <workItem from="1634953841023" duration="1024000" />
+      <workItem from="1634953841023" duration="1169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1954000" />
+    <option name="totallyTimeSpent" value="2099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="982" extended-state="6" />
