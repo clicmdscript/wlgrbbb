@@ -134,7 +134,7 @@ module Greenlight
     config.maintenance_mode = parse_bool(ENV["MAINTENANCE_MODE"])
 
     config.report_issue_url = ENV["REPORT_ISSUE_URL"]
-    config.help_url = ENV["HELP_URL"].nil? ? "https://vs1.roauset.com/" : ENV["HELP_URL"]
+    config.help_url = ENV["HELP_URL"].nil? ? "https://vs3.roauset.com/" : ENV["HELP_URL"]
 
     # File types allowed in preupload presentation
     config.allowed_file_types = ".doc,.docx,.ppt,.pptx,.pdf,.xls,.xlsx,.txt,.rtf,.odt,.ods,.odp,.odg,.odc,.odi,.jpg,.jpeg,.png"

@@ -31,7 +31,7 @@ public:
     bbbServerVersion: 2.3
     copyright: '©2021 Onmeet Inc.'
     html5ClientBuild: 1.0.2
-    helpLink: https://vs1.roauset.com/b/
+    helpLink: https://vs3.roauset.com/b/
     lockOnJoin: true
     cdn: ''
     basename: '/html5client'
@@ -192,7 +192,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: wss://vs1.roauset.com/bbb-webrtc-sfu
+    wsUrl: wss://vs3.roauset.com/bbb-webrtc-sfu
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
@@ -436,7 +436,7 @@ public:
       enabled: true
   note:
     enabled: true
-    url: https://vs1.roauset.com/pad
+    url: https://vs3.roauset.com/pad
   layout:
     autoSwapLayout: false
     hidePresentation: false
