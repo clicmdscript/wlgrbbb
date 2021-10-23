@@ -152,6 +152,18 @@ sudo rm -rf favicon.ico
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/index.html
 sudo wget https://github.com/2Pytorch01/wlgrbbb/raw/main/pp23/favicon.ico
 
+
+cd /etc/bigbluebutton
+rm -rf bbb-web.properties
+rm -rf bbb-apps-akka.conf
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-web.properties
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bbb-apps-akka.conf
+
+cd /usr/local/bigbluebutton/core/scripts
+rm -rf bigbluebutton.yml
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/bigbluebutton.yml
+
+
 echo ".................................................."
 echo "Now Docker UP -D, Restart Nginx & BBB"
 echo ".................................................."
