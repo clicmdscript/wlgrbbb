@@ -177,6 +177,10 @@ echo ".................................................."
 
 sudo bbb-conf --clean
 
+read -p "Enter NEW Domain to update with bbb-conf --setip domain.name.com: " DOAINBBBX
+echo "Data received"
+bbb-conf --setip $DOAINBBBX
+
 
 echo ".................................................."
 echo "All done !!!"
