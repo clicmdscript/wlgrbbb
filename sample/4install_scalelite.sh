@@ -212,10 +212,13 @@ chmod +x mscale.sh
 
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/addserver.sh
 wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/enableserver.sh
+wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/sample/removeserver.sh
+
 chmod +x addserver.sh
 chmod +x enableserver.sh
+chmod +x removeserver.sh
 
-echo "download and chomd for adminscalelite.sh, mscale.sh, addserver.sh, enableserver.sh completed"
+echo "download and chomd for adminscalelite.sh, mscale.sh, addserver.sh, enableserver.sh, removeserver.sh completed"
 
 echo ""
 
