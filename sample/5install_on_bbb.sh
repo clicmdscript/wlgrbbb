@@ -29,6 +29,12 @@ sudo hostname $DOMAINBBB1
 wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-23 -s $DOMAINBBB1 -e $EMAILBBB1 -w -g
 
 echo "BBB DONE"
+echo "GIT NEW GREENLIGHT"
+echo "wget https://github.com/2Pytorch01/wlgrbbb/blob/main/greenlight_uninstall_install.sh"
+echo "chmod +x greenlight_uninstall_install.sh"
+echo "./greenlight_uninstall_install.sh"
+read -p "OPEN NEW SSH and run command above after completed. Press enter to continue"
+
 echo ""
 echo "NFS COMMON INSTALL"
 echo "NFS config"
