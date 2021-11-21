@@ -31,7 +31,7 @@ public:
     bbbServerVersion: 2.3
     copyright: '©2021 Onmeet Inc.'
     html5ClientBuild: 1.0.2
-    helpLink: https://vs1.roauset.com/b/
+    helpLink: https://vconnect.greenlife-vn.com/b/
     lockOnJoin: true
     cdn: ''
     basename: '/html5client'
