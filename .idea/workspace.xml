@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8054353-eb44-4daa-bb5c-f6f7ef050c82" name="Default" comment="" />
+    <list default="true" id="a8054353-eb44-4daa-bb5c-f6f7ef050c82" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_footer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/_footer.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bbb-apps-akka.conf" beforeDir="false" afterPath="$PROJECT_DIR$/bbb-apps-akka.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bbb-web.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bbb-web.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigbluebutton.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bigbluebutton.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigbluebutton_error.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/bigbluebutton_error.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/help.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/sample.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/4install_scalelite.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sample/4install_scalelite.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/5install_on_bbb.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sample/5install_on_bbb.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/config_file/scale/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample/config_file/scale/note.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/croncheckmount.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sample/croncheckmount.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/scalelite" beforeDir="false" afterPath="$PROJECT_DIR$/sample/scalelite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scale/default/scalelite" beforeDir="false" afterPath="$PROJECT_DIR$/scale/default/scalelite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scale/install" beforeDir="false" afterPath="$PROJECT_DIR$/scale/install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/w11.sh" beforeDir="false" afterPath="$PROJECT_DIR$/w11.sh" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +31,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="w11.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/w11.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -18,6 +49,8 @@
       <find>onmeet</find>
       <find>wlgrbbb</find>
       <find>onmeet.roauset.com</find>
+      <find>vs1</find>
+      <find>vs1.roauset.com</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -95,25 +128,29 @@
       <workItem from="1634953841023" duration="1169000" />
       <workItem from="1634967142238" duration="1000" />
       <workItem from="1635224720424" duration="79000" />
+      <workItem from="1636448380005" duration="598000" />
+      <workItem from="1637474705331" duration="357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2179000" />
+    <option name="totallyTimeSpent" value="3134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="982" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005952" side_tool="true" weight="0.3292683" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49940476" weight="0.3292683" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -122,7 +159,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49940476" visible="true" weight="0.3292683" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +207,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="54" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w11.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
         </state>
       </provider>
     </entry>

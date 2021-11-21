@@ -1,4 +1,4 @@
-echo "THIS PATCH FOR vs1.roauset.com"
+echo "THIS PATCH FOR vs1.vconnect.greenlife-vn.com"
 read -p "if correct | Press enter to continue or cancel with CMD C. "
 echo ""
 echo "/root/greenlight"

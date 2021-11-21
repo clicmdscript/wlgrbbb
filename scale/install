@@ -29,12 +29,12 @@ wget https://raw.githubusercontent.com/2Pytorch01/wlgrbbb/main/scale/postgres.en
 
 sudo apt-get install -y certbot
 
-certbot certonly --manual -d dash.roauset.com --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges=dns --email lungtungner@gmail.com --server https://acme-v02.api.letsencrypt.org/directory
+certbot certonly --manual -d dash.vconnect.greenlife-vn.com --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges=dns --email lungtungner@gmail.com --server https://acme-v02.api.letsencrypt.org/directory
 
 
 
-cp /etc/letsencrypt/live/dash.roauset.com/fullchain.pem /bbbatscale/configurations/nginx/fullchain.pem
-cp /etc/letsencrypt/live/dash.roauset.com/privkey.pem /bbbatscale/configurations/nginx/privatekey.pem
+cp /etc/letsencrypt/live/dash.vconnect.greenlife-vn.com/fullchain.pem /bbbatscale/configurations/nginx/fullchain.pem
+cp /etc/letsencrypt/live/dash.vconnect.greenlife-vn.com/privkey.pem /bbbatscale/configurations/nginx/privatekey.pem
 
 cd /etc/
 mkdir nginx
@@ -56,5 +56,5 @@ environment:
 
 docker-compose -f /bbbatscale/docker-compose.yml up -d
 docker-compose -f /bbbatscale/docker-compose.yml exec bbbatscale bbbatscale migrate
-docker-compose -f /bbbatscale/docker-compose.yml exec bbbatscale bbbatscale tenant create dash.roauset.com
+docker-compose -f /bbbatscale/docker-compose.yml exec bbbatscale bbbatscale tenant create dash.vconnect.greenlife-vn.com
 docker-compose -f /bbbatscale/docker-compose.yml run --rm bbbatscale ./manage.py createsuperuser

@@ -30,7 +30,7 @@ sudo hostname $DOMAINBBB1
 wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-23 -s $DOMAINBBB1 -e $EMAILBBB1 -w -g
 
 #install bb24
-#wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-240 -s live1.roauset.com -e quan26@gmail.com -w -g
+#wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-240 -s live1.vconnect.greenlife-vn.com -e quan26@gmail.com -w -g
 
 echo "BBB DONE"
 echo "GIT NEW GREENLIGHT"
@@ -51,7 +51,7 @@ echo "vi /etc/fstab"
 echo "--------------------------------------------------------------------------------"
 echo "IPNFS:/mnt/scalelite-recordings /mnt/scalelite-recordings nfs defaults 0 0"
 echo "and"
-echo :sudo mount file.roauset.com:/mnt/scalelite-recordings /mnt/scalelite-recordings"
+echo :sudo mount file.vconnect.greenlife-vn.com:/mnt/scalelite-recordings /mnt/scalelite-recordings"
 echo "--------------------------------------------------------------------------------"
 echo "verify with: df -h"
 read -p "Press enter to continue"
